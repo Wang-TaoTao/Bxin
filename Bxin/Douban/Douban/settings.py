@@ -52,9 +52,11 @@ USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, li
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'Douban.middlewares.DoubanDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+   # 'Douban.middlewares.DoubanDownloaderMiddleware': 543,
+   'Douban.middlewares.ProxyDownloadMiddleware': 100,
+
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -101,5 +103,28 @@ import django
 django.setup()
 
 RETRY_TIMES = 2 #重新请求次数
-DOWNLOAD_DELAY = 0.5 # 间隔时间
+DOWNLOAD_DELAY = 0.3 # 间隔时间
 CONCURRENT_REQUESTS = 5 # 请求并发数
+
+
+#
+PROXY_LIST = [
+    {'ip_port':'59.109.217.251:15818','user_passwd':'t18756237644575:wangtaotao'},
+    # {'ip_port':'58.218.92.77:8000','user_passwd':'15041890905:wangtaotao'},
+    # {'ip_port':'58.218.92.72:7509','user_passwd':'15041890905:wangtaotao'},
+    # {'ip_port':'58.218.92.75:8530','user_passwd':'15041890905:wangtaotao'},
+    # {'ip_port':'58.218.92.68:3683','user_passwd':'15041890905:wangtaotao'},
+
+]
+
+#
+# PROXY_LIST = [
+#     {'ip_port':'121.13.252.62:41564'},
+#     {'ip_port':'163.204.244.182:9999'},
+#     {'ip_port':'182.92.113.148:8118'},
+#     {'ip_port':'36.248.133.217:9999'},
+#     {'ip_port':'119.57.108.65:53281'},
+#     {'ip_port':'60.217.152.231:8060'},
+#     {'ip_port':'36.248.133.100:9999'},
+#     {'ip_port':'192.168.5.188:8080'},
+# ]

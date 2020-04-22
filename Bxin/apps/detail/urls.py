@@ -5,5 +5,5 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^detail/(?P<movie_id>\d+)/$',views.DetailView.as_view(),name='detail')
+    url(r'^index/detail/(?P<movie_id>\d+)/$',views.DetailView.as_view(),name='detail')
 ]
