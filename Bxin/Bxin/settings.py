@@ -25,7 +25,7 @@ SECRET_KEY = 'a#jsbsm2qqpgyc=$@a94+r9jkdgwr5mibk9yp9$7f1l)(cj#w)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','www.Bxin.com']
 
 
 # Application definition
@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # 注册index子应用
+    'apps.index',
+    # 注册detail子应用
+    'apps.detail',
 ]
 
 MIDDLEWARE = [
@@ -150,6 +155,4 @@ STATIC_URL = '/static/'
 # 配置静态文件加载路径
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-
-ALLOWED_HOSTS = ['www.Bxin.com']
 
