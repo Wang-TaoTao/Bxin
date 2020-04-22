@@ -15,24 +15,24 @@ class MovieSpider(scrapy.Spider):
         el_list = response.xpath('//*[@class="info"]')
 
         for el in el_list:
-            item = DoubanItem()
-            item['name'] = el.xpath('./div[1]/a/span[1]/text()').extract_first()
-            info = el.xpath('./*[@class="bd"]/p[1]/text()').extract_first()
+            temp = DoubanItem()
+            temp['name'] = el.xpath('./div[1]/a/span[1]/text()').extract_first()
+            # info = el.xpath('./*[@class="bd"]/p[1]/text()').extract_first()
             # item['info'] = info.split('\n')[1].strip()
-            item['score'] = el.xpath('./div[2]/div/span[2]/text()').extract_first()
-            item['desc'] = el.xpath('./div[2]/p[2]/span/text()').extract_first()
+            temp['score'] = el.xpath('./div[2]/div/span[2]/text()').extract_first()
+            temp['desc'] = el.xpath('./div[2]/p[2]/span/text()').extract_first()
             # 图片地址
-            item['image'] = el.xpath('../div/a/img/@src').extract()[0]
+            temp['image'] = el.xpath('../div/a/img/@src').extract()[0]
 
             # 详情页链接
-            item['detail_link'] = el.xpath('../div[2]/div/a/@href').extract()[0]
+            temp['detail_link'] = el.xpath('../div[2]/div/a/@href').extract()[0]
 
-            if item['detail_link']:
-                yield scrapy.Request(url=item['detail_link'],
+            if temp['detail_link']:
+                yield scrapy.Request(url=temp['detail_link'],
                                      callback=self.movie_detail,
-                                     meta={"mv":item},
+                                     meta={"mv":temp},
                                      )
-            yield item
+            yield temp
 
 
         # 翻页

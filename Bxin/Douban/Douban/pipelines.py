@@ -31,11 +31,16 @@ from Douban.items import DoubanDetailItem, DoubanItem
 
 
 class DoubanPipeline(object):
+
     def process_item(self, item ,spider):
 
-        obj1 = DoubanItem()
-        print(obj1.direct)
+        # obj1 = DoubanItem()
+        # print(obj1.direct)
 
+        # DoubanItem.save()
+        # DoubanDetailItem.save()
+        # DoubanItem.save()
+        item.save()
 
 
         return item

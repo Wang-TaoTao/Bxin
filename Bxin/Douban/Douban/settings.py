@@ -66,6 +66,7 @@ USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, li
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'Douban.pipelines.DoubanPipeline': 300,
+   # 'Douban.pipelines.DoubanDetailPipeline': 310,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
