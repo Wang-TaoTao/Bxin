@@ -59,7 +59,7 @@ class MovieSpider(scrapy.Spider):
                                      meta={"mv":temp},
                                      )
 
-                # time.sleep(5)
+                time.sleep(5)
 
 
             yield temp

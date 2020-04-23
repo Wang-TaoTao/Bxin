@@ -114,7 +114,7 @@ DATABASES = {
         'PORT': 3306, # 数据库端口
         'USER': 'wangtaotao', # 数据库用户名
         'PASSWORD': 'wangtaotao', # 数据库用户密码
-        'NAME': 'Bxin' # 数据库名字
+        'NAME': 'bxin' # 数据库名字
     },
 }
 
@@ -167,7 +167,7 @@ HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
         'URL': 'http://192.168.5.128:9200/', # Elasticsearch服务器ip地址，端口号固定为9200
-        'INDEX_NAME': 'Bxin', # Elasticsearch建立的索引库的名称
+        'INDEX_NAME': 'bxin', # Elasticsearch建立的索引库的名称
     },
 }
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
@@ -217,3 +217,6 @@ LOGGING = {
 # 实例化日志对象
 import logging
 logger = logging.getLogger('django')
+
+
+PDFS_BASE_URL = 'http://192.168.5.128:8888/'

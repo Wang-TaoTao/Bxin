@@ -5,6 +5,22 @@
     <title>Title</title>
 </head>
 <body>
+<div class="main_wrap clearfix">
 
+            {% for result in page %}
+            <li>
+                {# object取得才是movie对象 #}
+{#                <a href="/detail/{{ result.object.id }}/"><img src="{{ result.object.image.url }}"></a>#}
+                <h4>{{ result.object.id }}-----{{ result.object.name }}</h4>
+
+{#                <div class="operate">#}
+{#                    <span class="price">￥{{ result.object.price }}</span>#}
+{#                    <span>{{ result.object.comments }}评价</span>#}
+{#                </div>#}
+            </li>
+{#            {% else %}#}
+{#                <p>没有找到您要查询的商品。</p>#}
+            {% endfor %}
+</div>
 </body>
 </html>

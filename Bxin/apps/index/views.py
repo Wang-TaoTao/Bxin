@@ -1,3 +1,4 @@
+from django import http
 from django.shortcuts import render
 
 from django.views import View
@@ -15,12 +16,12 @@ class IndexView(View):
 
         # 校验参数并查询
         try:
-            movie = MovieDetail.objects.filter(name__contains=movie_name)
+            movie = Movie.objects.filter(name__contains=movie_name)
         except Exception as e:
             logger.error(e)
 
         for mo in movie:
-            print(mo.name)
+            print(mo.image)
 
         context = {}
 
@@ -42,3 +43,28 @@ class IndexView(View):
         return render(request,'index.html',context=context)
 
 
+
+# 联想词
+class AssWrodView(View):
+
+    def get(self, request):
+
+        # 接收参数
+        asword = '我'
+        # 校验并查询参数
+        try:
+            word = Movie.objects.filter(name__contains=asword).order_by('name')
+        except Exception as e:
+            logger.error(e)
+            return http.HttpResponseNotFound('关键字不存在')
+
+        # 构造数据
+        result_list = []
+        for item in word:
+
+            result_list.append({
+                "name":item.name,
+            })
+        print(result_list)
+        # 返回数据
+        return http.JsonResponse(result_list)
