@@ -11,7 +11,7 @@ class Movie(models.Model):
     name = models.CharField(max_length=80, verbose_name='电影名称')
     # info = models.CharField(max_length=40, verbose_name='导演')
     score = models.CharField(max_length=10, verbose_name='电影评分')
-    desc = models.CharField(max_length=50, verbose_name='一句话影评')
+    desc = models.CharField(max_length=50,null=True,verbose_name='一句话影评')
     image = models.CharField(max_length=80, verbose_name='图片地址')
     detail_link = models.CharField(max_length=80,verbose_name='详情页链接')
     # flag = models.IntegerField(max_length=10,verbose_name='爬取表示符')

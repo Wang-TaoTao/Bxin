@@ -23,6 +23,8 @@ urlpatterns = [
     url(r'^',include('apps.index.urls',namespace='indexs')),
     # detail总路由
     url(r'^',include('apps.detail.urls',namespace='details')),
+    # users总路由
+    url(r'^',include('apps.users.urls',namespace='userss')),
 
     # 全文检索总路由
     url(r'^search/', include('haystack.urls'))

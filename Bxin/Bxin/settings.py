@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'apps.index',
     # 注册detail子应用
     'apps.detail',
+    # 注册users子应用
+    'apps.users',
 
     # 注册全文检索
     'haystack',

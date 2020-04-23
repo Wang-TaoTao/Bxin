@@ -10,32 +10,22 @@ class IndexView(View):
     def get(self,request):
 
         # 接收参数
-        # movie_id = request.GET.get('movie_id')
+        movie_name = request.GET.get('movie_name')
+        movie_name = "肖申克的救赎"
 
         # 校验参数并查询
         try:
-            movie = Movie.objects.filter(id=487)
+            movie = MovieDetail.objects.filter(name__contains=movie_name)
         except Exception as e:
             logger.error(e)
 
-
-        # try:
-        #     movie_detail = MovieDetail.objects.filter(id=1)
-        # except Exception as e:
-        #     logger.error(e)
-        # 构造数据
-        result_list = []
         for mo in movie:
+            print(mo.name)
 
-            context = {}
+        context = {}
 
-            result_list.append({
-                "name":mo.name,
-            })
 
-        context = {
-            "name":result_list,
-        }
+
 
         # context = {
         #     "name":movie.name,

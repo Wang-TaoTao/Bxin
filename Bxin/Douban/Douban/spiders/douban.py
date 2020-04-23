@@ -20,30 +20,30 @@ class MovieSpider(scrapy.Spider):
         for el in el_list:
             temp = DoubanItem()
 
+            # 电影名
             try:
                 temp['name'] = el.xpath('./div[1]/a/span[1]/text()').extract_first()
             except Exception as e:
                 logger.error(e)
-                print("{}111获取失败name".format(temp['name']))
-            # info = el.xpath('./*[@class="bd"]/p[1]/text()').extract_first()
-            # item['info'] = info.split('\n')[1].strip()
+                print("{}获取失败name".format(temp['name']))
+            # 分数
             try:
                 temp['score'] = el.xpath('./div[2]/div/span[2]/text()').extract_first()
             except Exception as e:
                 logger.error(e)
-                print("{}111获取失败score".format(temp['name']))
-
+                print("{}获取失败score".format(temp['name']))
+            # 一句话影评
             try:
                 temp['desc'] = el.xpath('./div[2]/p[2]/span/text()').extract_first()
             except Exception as e:
                 logger.error(e)
-                print("{}111获取失败desc".format(temp['name']))
+                print("{}获取失败desc".format(temp['name']))
             # 图片地址
             try:
                 temp['image'] = el.xpath('../div/a/img/@src').extract()[0]
             except Exception as e:
                 logger.error(e)
-                print("{}111获取失败image".format(temp['name']))
+                print("{}获取失败image".format(temp['name']))
             # 详情页链接
             try:
                 temp['detail_link'] = el.xpath('../div[2]/div/a/@href').extract()[0]
@@ -51,14 +51,15 @@ class MovieSpider(scrapy.Spider):
                 logger.error(e)
                 print("{}111获取失败desc".format(temp['name']))
 
+
             if temp['detail_link']:
 
                 yield scrapy.Request(url=temp['detail_link'],
                                      callback=self.movie_detail,
                                      meta={"mv":temp},
                                      )
-                time.sleep(5)
 
+                # time.sleep(5)
 
 
             yield temp
@@ -79,27 +80,31 @@ class MovieSpider(scrapy.Spider):
     def movie_detail(self, response):
 
         '''处理每个电影的详情页面'''
+
+
         item = response.meta['mv']
         temp = DoubanDetailItem()
 
-
+        # 获取详情页信息
         detail_all = response.xpath('//*[@id="info"]').extract()
         detail_all = str(detail_all)
 
-        import re
-        from w3lib.html import remove_tags
 
+        from w3lib.html import remove_tags
+        # 去除标签和引号
         detail_all_thr = eval(remove_tags(detail_all))
 
         # 电影名
         try:
             temp['name'] = response.xpath('//*[@id="content"]/h1/span[1]/text()').extract_first()
         except Exception as e:
+            logger.error(e)
             print("{}获取失败name".format(temp['name']))
         # 分数
         try:
             temp['score'] = response.xpath('//*[@id="interest_sectl"]/div[1]/div[2]/strong/text()').extract_first()
         except Exception as e:
+            logger.error(e)
             print("{}获取失败score".format(temp['name']))
         # 导演
         try:
