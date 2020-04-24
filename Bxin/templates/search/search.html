@@ -97,7 +97,7 @@
                 currentPage: {{ page.number }},
                 totalPage: {{ paginator.num_pages }},
                 callback:function (current) {
-{#                    window.location.href = '/search/?q=iphone&amp;page=1';#}
+
                     window.location.href = '/search/?q={{ query }}&page=' + current;
                 }
             })
