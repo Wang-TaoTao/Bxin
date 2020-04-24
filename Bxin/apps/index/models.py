@@ -13,7 +13,7 @@ class Movie(models.Model):
     score = models.CharField(max_length=10, verbose_name='电影评分')
     desc = models.CharField(max_length=50,null=True,verbose_name='一句话影评')
     image = models.CharField(max_length=80, verbose_name='图片地址')
-    image_file_id = models.CharField(max_length=80, verbose_name='图片file_id')
+    image_file_id = models.ImageField(null=True, verbose_name='图片file_id')
     detail_link = models.CharField(max_length=80,verbose_name='详情页链接')
 
 

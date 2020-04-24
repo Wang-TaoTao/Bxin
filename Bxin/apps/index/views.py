@@ -9,21 +9,9 @@ from django.views.generic import TemplateView
 from Bxin.settings import logger
 from .models import Movie, MovieDetail
 
-# class IndexView(TemplateView):
-#
-#     template_name = 'index.html'
-#
-#     def get_context_data(self, **kwargs):
-#
-#         # 接收参数
-#         context = super().get_context_data(**kwargs)
-#         context['name'] = Movie.objects.filter(name='肖申克的救赎').all()
-#         print(context['name'] )
-#         return context
 
 class IndexView(View):
     """提供首页电影"""
-
 
     def get(self, request):
 
@@ -33,24 +21,24 @@ class IndexView(View):
             logger.error(e)
             return
         result_list = []
-        contents = {}
+
         for mo in movies:
 
             result_list.append({
                 "name":mo.name,
                 "score":mo.score,
-                "image":mo.image,
-
+                "image_file_id":mo.image_file_id,
             })
-            # contents['image'] = mo.image,
+
 
         context = {
-            # 'categories': categories,
+
             'contents': result_list,
         }
+
         print(context)
 
-
+        # 返回结果
         return render(request, 'index.html', context)
 
 

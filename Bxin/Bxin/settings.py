@@ -25,7 +25,7 @@ SECRET_KEY = 'a#jsbsm2qqpgyc=$@a94+r9jkdgwr5mibk9yp9$7f1l)(cj#w)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','www.Bxin.com']
+ALLOWED_HOSTS = ['127.0.0.1','www.Bxin.com','192.16.5.128',]
 
 
 # Application definition
@@ -57,7 +57,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -229,14 +229,15 @@ import logging
 logger = logging.getLogger('django')
 
 
-PDFS_BASE_URL = 'http://192.168.5.128:8888/'
 
 
+FDFS_URL = 'http://192.168.5.128:8000/'
 
 # 指定自定义的Django文件存储类
 DEFAULT_FILE_STORAGE = 'utils.fastdfs.fastdfs_storage.FastDFSStorage'
 
-
 # FastDFS相关参数
 # FDFS_BASE_URL = 'http://192.168.5.158:8888/'
-FDFS_BASE_URL = 'http://image.Bxin.com:8888/'
+
+PDFS_BASE_URL = 'http://image.Bxin.com:8888/'
+
