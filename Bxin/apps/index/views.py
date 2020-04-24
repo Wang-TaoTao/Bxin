@@ -16,7 +16,7 @@ class IndexView(View):
     def get(self, request):
 
         try:
-            movies = Movie.objects.all()[:10]
+            movies = Movie.objects.all()
         except Exception as e:
             logger.error(e)
             return
@@ -49,22 +49,13 @@ class AssWrodView(View):
 
     def get(self, request):
 
-        # 接收参数
-        asword = '我'
-        # 校验并查询参数
-        try:
-            word = Movie.objects.filter(name__contains=asword).order_by('name')
-        except Exception as e:
-            logger.error(e)
-            return http.HttpResponseNotFound('关键字不存在')
+        # 接收联想词
 
-        # 构造数据
-        result_list = []
-        for item in word:
+        # 校验并查询
 
-            result_list.append({
-                "name":item.name,
-            })
-        print(result_list)
-        # 返回数据
-        return http.JsonResponse(result_list)
+        # 构造格式
+
+
+        print("联想词")
+        # 返回响应
+        return http.JsonResponse({""})

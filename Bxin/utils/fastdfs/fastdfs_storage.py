@@ -23,6 +23,6 @@ class FastDFSStorage(Storage):
 
     # 重写父类的 url函数  返回一个 IP：port/00/00/meizi.png  全路径
     def url(self,name):
-         print('22222222222222222')
+
          return self.base_url + name
 

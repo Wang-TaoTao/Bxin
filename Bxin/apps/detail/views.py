@@ -10,6 +10,9 @@ class DetailView(View):
 
     def get(self,request):
 
+
+
+
         context = {}
 
         return render(request,'detail.html',context=context)

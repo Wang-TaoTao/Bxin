@@ -43,20 +43,26 @@
                 <input type="text" class="input_text fl" name="q" placeholder="搜索电影">
                 <input type="submit" class="input_btn fr" name="" value="搜索">
             </form>
+{#                 <div class="search-bottom">#}
+
+
+
 			<ul class="search_suggest fl">
 				<li><a href="#">肖申克的救赎</a></li>
 				<li><a href="#">辛德勒的名单</a></li>
 				<li><a href="#">千与千寻</a></li>
 				<li><a href="#">星际穿越</a></li>
 			</ul>
+
 		</div>
+
 
 
     <div class="guest_cart fr">
             <a href="#" class="cart_name fl">小电影</a>
             <div class="goods_count fl" id="show_count">9</div>
             <ul class="cart_goods_show">
-                </li>
+
             </ul>
 		</div>
 
@@ -274,7 +280,7 @@
 
 	<div class="list_model">
 		<div class="list_title clearfix">
-			<h3 class="fl" id="model01">豆瓣电影 Top1-90</h3>
+			<h3 class="fl" id="model01">豆瓣电影 Top 1-90</h3>
 			<div class="subtitle fr">
 				<a href="javascript:;" @mouseenter="f1_tab=1" :class="f1_tab===1?'active':''">最新推荐</a>
 				<a href="javascript:;" @mouseenter="f1_tab=2" :class="f1_tab===2?'active':''">经典老片</a>
@@ -308,7 +314,7 @@
 			<div class="goods_list_con">
 
 				<ul class="goods_list fl" v-show="f1_tab===1">
-                    {% for ssxp in contents %}
+                    {% for ssxp in contents[:10] %}
 					<li>
 
 						<a href="#" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
@@ -316,12 +322,13 @@
 						<div class="price">{{ ssxp.score }}</div>
 					</li>
                     {% endfor %}
+
 				</ul>
 
 
 
 				<ul class="goods_list fl" v-show="f1_tab===2">
-                    {% for ssxp in contents %}
+                    {% for ssxp in contents[11:21] %}
 					<li>
 						<a href="#" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
 						<h4><a href="#" title="{{ ssxp.name }}">{{ ssxp.name }}</a></h4>
@@ -334,7 +341,7 @@
 
 
 				<ul class="goods_list fl" v-show="f1_tab===3">
-                    {% for ssxp in contents %}
+                    {% for ssxp in contents[21:31] %}
 					<li>
 						<a href="#" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
 						<h4><a href="#" title="{{ ssxp.name }}">{{ ssxp.name }}</a></h4>
@@ -349,11 +356,12 @@
 
     <div class="list_model model02">
 		<div class="list_title clearfix">
-			<h3 class="fl" id="model02">豆瓣电影 Top91-181</h3>
+			<h3 class="fl" id="model02">豆瓣电影 Top 91-181</h3>
 			<div class="subtitle fr">
-				<a href="javascript:;" @mouseenter="f2_tab=1" :class="f2_tab===1?'active':''">最新推荐</a>
-				<a href="javascript:;" @mouseenter="f2_tab=2" :class="f2_tab===2?'active':''">经典老片</a>
-				<a href="javascript:;" @mouseenter="f2_tab=3" :class="f2_tab===3?'active':''">豆瓣好评</a>
+				<a href="javascript:;" @mouseenter="f2_tab=1" :class="f2_tab===1?'active':''">精神食粮</a>
+				<a href="javascript:;" @mouseenter="f2_tab=2" :class="f2_tab===2?'active':''">加个餐吧</a>
+
+
 			</div>
 		</div>
 		<div class="goods_con clearfix">
@@ -383,7 +391,7 @@
 			<div class="goods_list_con">
 
 				<ul class="goods_list fl" v-show="f2_tab===1">
-                    {% for ssxp in contents %}
+                    {% for ssxp in contents[31:41] %}
 					<li>
 
 						<a href="#" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
@@ -396,7 +404,7 @@
 
 
 				<ul class="goods_list fl" v-show="f2_tab===2">
-                    {% for ssxp in contents %}
+                    {% for ssxp in contents[42:52] %}
 					<li>
 						<a href="#" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
 						<h4><a href="#" title="{{ ssxp.name }}">{{ ssxp.name }}</a></h4>
@@ -409,7 +417,7 @@
 
 
 				<ul class="goods_list fl" v-show="f2_tab===3">
-                    {% for ssxp in contents %}
+                    {% for ssxp in contents[53:63] %}
 					<li>
 						<a href="#" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
 						<h4><a href="#" title="{{ ssxp.name }}">{{ ssxp.name }}</a></h4>
@@ -422,11 +430,12 @@
         </div>
     <div class="list_model model03">
 		<div class="list_title clearfix">
-			<h3 class="fl" id="model03">豆瓣电影 Top182-250</h3>
+			<h3 class="fl" id="model03">豆瓣电影 Top 182-250</h3>
 			<div class="subtitle fr">
 				<a href="javascript:;" @mouseenter="f3_tab=1" :class="f3_tab===1?'active':''">最新推荐</a>
 				<a href="javascript:;" @mouseenter="f3_tab=2" :class="f3_tab===2?'active':''">经典老片</a>
-				<a href="javascript:;" @mouseenter="f3_tab=3" :class="f3_tab===3?'active':''">豆瓣好评</a>
+
+
 			</div>
 		</div>
 		<div class="goods_con clearfix">
@@ -456,7 +465,7 @@
 			<div class="goods_list_con">
 
 				<ul class="goods_list fl" v-show="f3_tab===1">
-                    {% for ssxp in contents %}
+                    {% for ssxp in contents[64:74] %}
 					<li>
 
 						<a href="#" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
@@ -469,7 +478,7 @@
 
 
 				<ul class="goods_list fl" v-show="f3_tab===2">
-                    {% for ssxp in contents %}
+                    {% for ssxp in contents[75:85] %}
 					<li>
 						<a href="#" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
 						<h4><a href="#" title="{{ ssxp.name }}">{{ ssxp.name }}</a></h4>
@@ -482,7 +491,7 @@
 
 
 				<ul class="goods_list fl" v-show="f3_tab===3">
-                    {% for ssxp in contents %}
+                    {% for ssxp in contents[86:96] %}
 					<li>
 						<a href="#" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
 						<h4><a href="#" title="{{ ssxp.name }}">{{ ssxp.name }}</a></h4>
@@ -515,9 +524,15 @@
 		<p>CopyRight © 2020 北京豆瓣电影股份有限公司 All Rights Reserved</p>
 		<p>电话：010-****888    京ICP备*******8号</p>
 	</div>
+    </div>
+
 
 	<script type="text/javascript" src="/static/js/slide.js"></script>
 	<script type="text/javascript" src="/static/js/index.js"></script>
 	<script type="text/javascript" src="/static/js/common.js"></script>
+    <script type="text/javascript" src="/static/js/dream_word.js"></script>
+
 </body>
 </html>
+
+
