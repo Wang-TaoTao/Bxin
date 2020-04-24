@@ -11,7 +11,7 @@ from Douban.items import DoubanDetailItem
 class MovieSpider(scrapy.Spider):
     name = 'douban'
     allowed_domains = ['douban.com']
-    start_urls = ['https://movie.douban.com/top250']
+    start_urls = ['https://index.douban.com/top250']
 
     def parse(self, response):
 

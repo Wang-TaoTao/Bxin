@@ -1,46 +1,58 @@
+import json
+
 from django import http
 from django.shortcuts import render
 
 from django.views import View
+from django.views.generic import TemplateView
 
 from Bxin.settings import logger
 from .models import Movie, MovieDetail
 
+# class IndexView(TemplateView):
+#
+#     template_name = 'index.html'
+#
+#     def get_context_data(self, **kwargs):
+#
+#         # 接收参数
+#         context = super().get_context_data(**kwargs)
+#         context['name'] = Movie.objects.filter(name='肖申克的救赎').all()
+#         print(context['name'] )
+#         return context
+
 class IndexView(View):
+    """提供首页电影"""
 
-    def get(self,request):
 
-        # 接收参数
-        movie_name = request.GET.get('movie_name')
-        movie_name = "肖申克的救赎"
+    def get(self, request):
 
-        # 校验参数并查询
         try:
-            movie = Movie.objects.filter(name__contains=movie_name)
+            movies = Movie.objects.all()[:10]
         except Exception as e:
             logger.error(e)
+            return
+        result_list = []
+        contents = {}
+        for mo in movies:
 
-        for mo in movie:
-            print(mo.image)
+            result_list.append({
+                "name":mo.name,
+                "score":mo.score,
+                "image":mo.image,
 
-        context = {}
+            })
+            # contents['image'] = mo.image,
 
-
-
-
-        # context = {
-        #     "name":movie.name,
-        #     # "direct":movie_detail.direct,
-        #     # "performer":movie_detail.performer,
-        #     # "time":movie_detail.time,
-        #     # "type":movie_detail.type,
-        #     # "score":movie_detail.score,
-        #     "cinecism":movie.desc,
-        #     "image_url":movie.image,
-        # }
+        context = {
+            # 'categories': categories,
+            'contents': result_list,
+        }
+        print(context)
 
 
-        return render(request,'index.html',context=context)
+        return render(request, 'index.html', context)
+
 
 
 

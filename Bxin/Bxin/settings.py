@@ -47,13 +47,17 @@ INSTALLED_APPS = [
 
     # 注册全文检索
     'haystack',
+    # 跨域
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    # 配置跨域中间件
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -80,6 +84,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.jinja2.Jinja2',  # 1.jinja2模板引擎
         'DIRS': [os.path.join(BASE_DIR, 'templates')], # 2.模本文件夹路径
+         # 'DIRS': [os.path.join(BASE_DIR,'dbqd/dist')], # 2.模本文件夹路径
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -93,6 +98,9 @@ TEMPLATES = [
         },
     },
 ]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR,"")
+# ]
 
 WSGI_APPLICATION = 'Bxin.wsgi.application'
 
@@ -157,10 +165,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# 配置静态文件加载路径
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# 配置静态文件加载路径
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'dbqd/dist/static')]
 
-
+# 跨域
+CORS_ORIGIN_ALLOW_ALL = False
 
 # Haystack 为搜索引擎后端
 HAYSTACK_CONNECTIONS = {
@@ -220,3 +230,13 @@ logger = logging.getLogger('django')
 
 
 PDFS_BASE_URL = 'http://192.168.5.128:8888/'
+
+
+
+# 指定自定义的Django文件存储类
+DEFAULT_FILE_STORAGE = 'utils.fastdfs.fastdfs_storage.FastDFSStorage'
+
+
+# FastDFS相关参数
+# FDFS_BASE_URL = 'http://192.168.5.158:8888/'
+FDFS_BASE_URL = 'http://image.Bxin.com:8888/'

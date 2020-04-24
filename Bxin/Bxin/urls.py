@@ -15,12 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.views.generic.base import TemplateView
+from apps.index import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     # index总路由
     url(r'^',include('apps.index.urls',namespace='indexs')),
+
+    # url(r'^', TemplateView.as_view(template_name='index.html')),
     # detail总路由
     url(r'^',include('apps.detail.urls',namespace='details')),
     # users总路由

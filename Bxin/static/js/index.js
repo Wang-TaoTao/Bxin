@@ -8,7 +8,7 @@ var vm = new Vue({
         f2_tab: 1, // 2F 标签页控制
         f3_tab: 1, // 3F 标签页控制
         cart_total_count: 0, // 购物车总数量
-        carts: [], // 购物车数据,
+        contents: [], // 购物车数据,
         username:'',
     },
     mounted(){
@@ -20,18 +20,18 @@ var vm = new Vue({
     methods: {
         // 获取购物车数据
         get_carts(){
-            var url = this.host+'/carts/simple/';
+            var url = this.host+'/movies/';
             axios.get(url, {
                     responseType: 'json',
                 })
                 .then(response => {
-                    this.carts = response.data.cart_skus;
+                    this.movies = response.data.contents;
                     this.cart_total_count = 0;
                     for(var i=0;i<this.carts.length;i++){
-                        if (this.carts[i].name.length>25){
-                            this.carts[i].name = this.carts[i].name.substring(0, 25) + '...';
+                        if (this.movies[i].name.length>25){
+                            this.movies[i].name = this.movies[i].name.substring(0, 25) + '...';
                         }
-                        this.cart_total_count += this.carts[i].count;
+                        this.cart_total_count += this.movies[i].count;
                     }
                 })
                 .catch(error => {

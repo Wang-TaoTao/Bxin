@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
                 ('address', models.CharField(max_length=50, verbose_name='地区')),
                 ('language', models.CharField(max_length=80, verbose_name='语言')),
                 ('date', models.CharField(max_length=256, verbose_name='上映日期')),
-                ('for_key', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='index.Movie', verbose_name='movie')),
+                ('for_key', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='index.Movie', verbose_name='index')),
             ],
             options={
                 'verbose_name': '电影详情信息',
