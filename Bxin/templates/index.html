@@ -18,12 +18,13 @@
 			<div class="fr">
 				<div class="login_info fl">
 					欢迎您：<em>WTT</em>
+
 					<a href="javascript:;" class="quit">退出</a>
 				</div>
 				<div class="login_btn fl">
-					<a href="#">登录</a>
+					<a href="/login">登录</a>
 					<span>|</span>
-					<a href="#">注册</a>
+					<a href="/register">注册</a>
 				</div>
 				<div class="user_link fl">
 					<span>|</span>
@@ -317,7 +318,7 @@
                     {% for ssxp in contents[:10] %}
 					<li>
 
-						<a href="#" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
+						<a href="/detail/{{ ssxp.id }}" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
 						<h4><a href="#" title="{{ ssxp.name }}">{{ ssxp.name }}</a></h4>
 						<div class="price">{{ ssxp.score }}</div>
 					</li>
@@ -327,10 +328,11 @@
 
 
 
+
 				<ul class="goods_list fl" v-show="f1_tab===2">
                     {% for ssxp in contents[11:21] %}
 					<li>
-						<a href="#" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
+						<a href="/detail/{{ ssxp.id }}" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
 						<h4><a href="#" title="{{ ssxp.name }}">{{ ssxp.name }}</a></h4>
 						<div class="price">{{ ssxp.score }}</div>
 					</li>
@@ -343,7 +345,7 @@
 				<ul class="goods_list fl" v-show="f1_tab===3">
                     {% for ssxp in contents[21:31] %}
 					<li>
-						<a href="#" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
+						<a href="/detail/{{ ssxp.id }}" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
 						<h4><a href="#" title="{{ ssxp.name }}">{{ ssxp.name }}</a></h4>
 						<div class="price">{{ ssxp.score }}</div>
 					</li>
@@ -394,7 +396,7 @@
                     {% for ssxp in contents[31:41] %}
 					<li>
 
-						<a href="#" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
+						<a href="/detail/{{ ssxp.id }}" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
 						<h4><a href="#" title="{{ ssxp.name }}">{{ ssxp.name }}</a></h4>
 						<div class="price">{{ ssxp.score }}</div>
 					</li>
@@ -406,7 +408,7 @@
 				<ul class="goods_list fl" v-show="f2_tab===2">
                     {% for ssxp in contents[42:52] %}
 					<li>
-						<a href="#" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
+						<a href="/detail/{{ ssxp.id }}" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
 						<h4><a href="#" title="{{ ssxp.name }}">{{ ssxp.name }}</a></h4>
 						<div class="price">{{ ssxp.score }}</div>
 					</li>
@@ -419,7 +421,7 @@
 				<ul class="goods_list fl" v-show="f2_tab===3">
                     {% for ssxp in contents[53:63] %}
 					<li>
-						<a href="#" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
+						<a href="/detail/{{ ssxp.id }}" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
 						<h4><a href="#" title="{{ ssxp.name }}">{{ ssxp.name }}</a></h4>
 						<div class="price">{{ ssxp.score }}</div>
 					</li>
@@ -468,7 +470,7 @@
                     {% for ssxp in contents[64:74] %}
 					<li>
 
-						<a href="#" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
+						<a href="/detail/{{ ssxp.id }}" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
 						<h4><a href="#" title="{{ ssxp.name }}">{{ ssxp.name }}</a></h4>
 						<div class="price">{{ ssxp.score }}</div>
 					</li>
@@ -480,7 +482,7 @@
 				<ul class="goods_list fl" v-show="f3_tab===2">
                     {% for ssxp in contents[75:85] %}
 					<li>
-						<a href="#" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
+						<a href="/detail/{{ ssxp.id }}" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
 						<h4><a href="#" title="{{ ssxp.name }}">{{ ssxp.name }}</a></h4>
 						<div class="price">{{ ssxp.score }}</div>
 					</li>
@@ -493,7 +495,7 @@
 				<ul class="goods_list fl" v-show="f3_tab===3">
                     {% for ssxp in contents[86:96] %}
 					<li>
-						<a href="#" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
+						<a href="/detail/{{ ssxp.id }}" class="goods_pic"><img src="{{ ssxp.image_file_id.url }}"></a>
 						<h4><a href="#" title="{{ ssxp.name }}">{{ ssxp.name }}</a></h4>
 						<div class="price">{{ ssxp.score }}</div>
 					</li>

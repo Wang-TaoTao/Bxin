@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>豆瓣-电影详情</title>
+    <link rel="stylesheet" type="text/css" href="{{ static('css/reset.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ static('css/main.css') }}">
+	<script type="text/javascript" src="{{ static('js/vue-2.5.16.js') }}"></script>
+    <script type="text/javascript" src="{{ static('js/axios-0.18.0.min.js') }}"></script>
+    <script type="text/javascript" src="{{ static('js/host.js') }}"></script>
+</head>
+<body>
+	<div id="app">
+	<div class="header_con">
+		<div class="header" v-cloak>
+			<div class="welcome fl">欢迎来到豆瓣电影！</div>
+			<div class="fr">
+                <div v-if="username" class="login_btn fl">
+                    欢迎您：<em>王涛涛</em>
+                    <span>|</span>
+                    <a href="#">退出</a>
+                </div>
+                <div v-else class="login_btn fl">
+                    <a href="/login/">登录</a>
+                    <span>|</span>
+                    <a href="/register/">注册</a>
+                </div>
+				<div class="user_link fl">
+					<span>|</span>
+					<a href="#">个人中心</a>
+					<span>|</span>
+					<a href="#">我的小电影</a>
+
+				</div>
+			</div>
+		</div>		
+	</div>
+	<div class="search_bar clearfix">
+		<div class="search_wrap fl">
+			<form method="get" action="/search/" class="search_con">
+                <input type="text" class="input_text fl" name="q" placeholder="搜索电影">
+                <input type="submit" class="input_btn fr" name="" value="搜索">
+            </form>
+			<ul class="search_suggest fl">
+				<li><a href="#">教父</a></li>
+				<li><a href="#">杀破狼2</a></li>
+				<li><a href="#">扫毒2</a></li>
+				<li><a href="#">更多电影</a></li>
+			</ul>
+		</div>
+
+		</div>
+
+    </div>
+			<ul class="navlist fl">
+				<li><a href="">首页</a></li>
+				<li class="interval">>></li>
+				<li><a href="">电影</a></li>
+				<li class="interval">>></li>
+				<li><a href="">{{ movie.name }}</a></li>
+			</ul>
+
+
+	<div class="goods_detail_con clearfix">
+        <p>1 </p>
+        <p> 2</p>
+        <p> 3</p>
+        <p>4 </p>
+        <p> 5</p>
+    {% for mod in moviedetail %}
+		<div class="goods_detail_pic fl"><img src="{{ movie.image_file_id.url }}"></div>
+		<div class="goods_detail_list fr">
+			<h3>{{ mod.name }}</h3>
+
+			<div class="price_bar">
+				<span class="show_pirce">☆☆☆☆<em>       {{ mod.score }}</em></span>
+				<a href="javascript:;" class="goods_judge">68人评价</a>
+			</div>
+
+        <p>导演：{{ mod.direct }}</p>
+        <p>编剧：{{ mod.etc }}</p>
+        <p>主演：{{ mod.performer }}</p>
+        <p>类型：{{ mod.types }}</p>
+        <p>制片国家/地区：{{ mod.address }}</p>
+        <p>语言：{{ mod.language }}</p>
+        <p>上映日期：{{ mod.date }}</p>
+
+
+            {% endfor %}
+			</div>
+    </div>
+{#            <div class="type_select">#}
+{#                <label>导演:</label>#}
+{#                {% for mod in moviedetail %}#}
+{#                 #}
+{#                    <a href="javascript:;" class="select">{{ mod.direct }}</a>#}
+{#                    {% elif option.sku_id %}#}
+{#                    <a href="{{ url('goods:detail', args=(option.sku_id, )) }}">{{ option.value }}</a>#}
+{#                    {% else %}#}
+{#                    <a href="javascript:;">{{ option.value }}</a>#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#            {% endfor %}#}
+{#			<div class="total" v-cloak>总价：<em>[[ sku_amount ]]元</em></div>#}
+{#			<div class="operate_btn">#}
+{#				<a href="javascript:;" class="add_cart" id="add_cart" @click="add_carts">加入购物车</a>#}
+{#			</div>#}
+{#		</div>#}
+{#	</div>#}
+{#	<div class="main_wrap clearfix">#}
+{#		<div class="l_wrap fl clearfix">#}
+{#			<div class="new_goods">#}
+{#				<h3>热销排行</h3>#}
+{#				<ul>#}
+{#                    <li v-for="sku in hot_skus">#}
+{#                        <a :href="sku.url"><img :src="sku.default_image_url"></a>#}
+{#                        <h4><a :href="sku.url">[[ sku.name ]]</a></h4>#}
+{#                        <div class="price">￥[[ sku.price ]]</div>#}
+{#                    </li>#}
+{#                </ul>#}
+{#			</div>#}
+{#		</div>#}
+{#		<div class="r_wrap fr clearfix">#}
+{#			<ul class="detail_tab clearfix">#}
+{#				<li @click="on_tab_content('detail')" :class="tab_content.detail?'active':''">商品详情</li>#}
+{#				<li @click="on_tab_content('pack')" :class="tab_content.pack?'active':''">规格与包装</li>#}
+{#				<li @click="on_tab_content('service')" :class="tab_content.service?'active':''">售后服务</li>#}
+{#                <li @click="on_tab_content('comment')" :class="tab_content.comment?'active':''">商品评价([[count]])</li>#}
+{#			</ul>#}
+{#			<div @click="on_tab_content('detail')"class="tab_content" :class="tab_content.detail?'current':''">#}
+{#				<dl>#}
+{#					<dt>商品详情：</dt>#}
+{#					<dd>{{ sku.spu.desc_detail|safe }}</dd>#}
+{#				</dl>#}
+{#			</div>#}
+{#			<div @click="on_tab_content('pack')" class="tab_content" :class="tab_content.pack?'current':''">#}
+{#				<dl>#}
+{#					<dt>规格与包装：</dt>#}
+{#					<dd>{{ sku.spu.desc_pack|safe }}</dd>#}
+{#				</dl>#}
+{#			</div>#}
+{#			<div @click="on_tab_content('service')" class="tab_content" :class="tab_content.service?'current':''">#}
+{#				<dl>#}
+{#					<dt>售后服务：</dt>#}
+{#					<dd>{{ sku.spu.desc_service|safe }}</dd>#}
+{#				</dl>#}
+{#			</div>#}
+{#            <div  @click="on_tab_content('comment')"  class="tab_content" :class="tab_content.comment?'current':''">#}
+{#				<ul class="judge_list_con">#}
+{#					<li v-for="com in comments" class="judge_list fl">#}
+{#						<div class="user_info fl">#}
+{##}
+{#							<img src="{{ static('images/cat.jpg') }}">#}
+{#                            <b>[[com.username]]</b>#}
+{##}
+{#						</div>#}
+{##}
+{#                        <div class="judge_info fl">#}
+{##}
+{#							<div class="stars_five">[[com.score]]颗星</div>#}
+{#							<div class="judge_detail">派送非常快，第二天上午就收到。2天使用初步总结，前一部手机也是华为P9plus.MATE10pro包装原封未拆精致大气。拆开后第一眼就看到宝石蓝的手机，非常惊艳；然后就是配件一应俱全。开机各方面设置，把通讯录、短信等同步好，同品牌手机同步很快。和P9plus一样的后置指纹识别很方便。录制指纹容易，解锁非常快，秒开！屏幕完好，默认分辨率显示效果很好。</div>#}
+{#							<div class="judge_detail">[[com.comment]]</div>#}
+{##}
+{#                        </div>#}
+{#					</li>			#}
+{#				</ul>#}
+{#			</div>#}
+{#		</div>#}
+{#	</div>#}
+	<div class="footer">
+		<div class="foot_link">
+			<a href="#">关于豆瓣</a>
+			<span>|</span>
+			<a href="#">联系豆瓣</a>
+			<span>|</span>
+			<a href="#">招聘人才</a>
+			<span>|</span>
+			<a href="#">意见反馈</a>
+		</div>
+		<p>CopyRight © 2020 北京豆瓣电影股份有限公司 All Rights Reserved</p>
+		<p>电话：010-****888    京ICP备*******8号</p>
+{#	</div>#}
+{#	</div>#}
+    <script type="text/javascript">
+        let category_id = "{{ moviedetail.id }}";
+        let sku_price = "{{ movie.score }}";
+        let sku_id = "{{ movie.id }}";
+
+    </script>
+	<script type="text/javascript" src="{{ static('js/common.js') }}"></script>
+{#	<script type="text/javascript" src="{{ static('js/detail.js') }}"></script>#}
+</body>
+</html>

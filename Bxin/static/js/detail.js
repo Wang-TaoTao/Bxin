@@ -3,20 +3,19 @@ let vm = new Vue({
     delimiters: ['[[', ']]'],
     data: {
         username: getCookie('username'),
-        hot_skus: [],
-        category_id: category_id,
-		sku_id: sku_id,
-        sku_price: sku_price,
-        sku_count: 1,
-        sku_amount: 0,
+        hot_movie: [],
+        movie_id: movie_id,
+        movie_score: movie_score,
+   
+   
         tab_content: {
 		    detail: true,
             pack: false,
             comment: false,
             service: false
         },
-        cart_total_count: 0,
-        carts: [],
+
+   
         comments: [],
         count:[],
         score_classes: {
@@ -28,51 +27,16 @@ let vm = new Vue({
         },
     },
     mounted(){
-		// 获取热销商品数据
-        this.get_hot_skus();
-        // 记录分类商品的访问量
-		this.goods_visit_count();
-        // 保存用户浏览记录
-		this.save_browse_histories();
-		// 获取简单购物车数据
-        this.get_carts();
-		// 获取商品评价信息
-        this.get_goods_comment();
+		// 获取热门电影数据
+        this.get_hot_movies();
+    
+	
+		// 获取电影评价信息
+        this.get_movie_comment();
     },
-    watch: {
-        // 监听商品数量的变化
-        sku_count: {
-            handler(newValue){
-                this.sku_amount = (newValue * this.sku_price).toFixed(2);
-            },
-            immediate: true
-        }
-    },
+  
     methods: {
-        // 加数量
-        on_addition(){
-            if (this.sku_count < 5) {
-                this.sku_count++;
-            } else {
-                this.sku_count = 5;
-                alert('超过商品数量上限');
-            }
-        },
-        // 减数量
-        on_minus(){
-            if (this.sku_count > 1) {
-                this.sku_count--;
-            }
-        },
-        // 编辑商品数量
-        check_sku_count(){
-            if (this.sku_count > 5) {
-                this.sku_count = 5;
-            }
-            if (this.sku_count < 1) {
-                this.sku_count = 1;
-            }
-        },
+        
         // 控制页面标签页展示
         on_tab_content(name){
             this.tab_content = {
@@ -84,16 +48,16 @@ let vm = new Vue({
             this.tab_content[name] = true;
         },
     	// 获取热销商品数据
-        get_hot_skus(){
-            if (this.category_id) {
-                let url = '/hot/'+ this.category_id +'/';
+        get_hot_movies(){
+            if (this.movie_id) {
+                let url = '/hot/'+ this.movie_id +'/';
                 axios.get(url, {
                     responseType: 'json'
                 })
                     .then(response => {
-                        this.hot_skus = response.data.hot_skus;
-                        for(let i=0; i<this.hot_skus.length; i++){
-                            this.hot_skus[i].url = '/detail/' + this.hot_skus[i].id + '/';
+                        this.hot_movie = response.data.hot_movie;
+                        for(let i=0; i<this.hot_movie.length; i++){
+                            this.hot_movie[i].url = '/detail/' + this.hot_movie[i].id + '/';
                         }
                     })
                     .catch(error => {
@@ -103,94 +67,11 @@ let vm = new Vue({
         },
 
 
-
-        // 记录分类商品的访问量
-		goods_visit_count(){
-        	if (this.category_id) {
-        		let url = '/detail/visit/' + this.category_id + '/';
-				axios.post(url, {}, {
-                    headers: {
-                        'X-CSRFToken':getCookie('csrftoken')
-                    },
-                    responseType: 'json'
-                })
-					.then(response => {
-						console.log(response.data);
-					})
-					.catch(error => {
-						console.log(error.response);
-					});
-			}
-		},
-		// 保存用户浏览记录
-		save_browse_histories(){
-        	if (this.sku_id) {
-        		let url = '/browse_histories/';
-				axios.post(url, {
-                    'sku_id':this.sku_id
-                }, {
-                    headers: {
-                        'X-CSRFToken':getCookie('csrftoken')
-                    },
-                    responseType: 'json'
-                })
-					.then(response => {
-						console.log(response.data);
-					})
-					.catch(error => {
-						console.log(error.response);
-					});
-			}
-		},
-        // 加入购物车
-        add_carts(){
-            let url = '/carts/';
-            axios.post(url, {
-                sku_id: parseInt(this.sku_id),
-                count: this.sku_count
-            }, {
-                headers: {
-                    'X-CSRFToken':getCookie('csrftoken')
-                },
-                responseType: 'json',
-                withCredentials: true
-            })
-                .then(response => {
-                    if (response.data.code == '0') {
-                        alert('添加购物车成功');
-                        this.cart_total_count += this.sku_count;
-                    } else { // 参数错误
-                        alert(response.data.errmsg);
-                    }
-                })
-                .catch(error => {
-                    console.log(error.response);
-                })
-        },
-        // 获取简单购物车数据
-        get_carts(){
-        	let url = '/carts/simple/';
-            axios.get(url, {
-                responseType: 'json',
-            })
-                .then(response => {
-                    this.carts = response.data.cart_skus;
-                    this.cart_total_count = 0;
-                    for(let i=0;i<this.carts.length;i++){
-                        if (this.carts[i].name.length>25){
-                            this.carts[i].name = this.carts[i].name.substring(0, 25) + '...';
-                        }
-                        this.cart_total_count += this.carts[i].count;
-                    }
-                })
-                .catch(error => {
-                    console.log(error.response);
-                })
-        },
+       
         // 获取商品评价信息 (原)
-        get_goods_comment(){
-            if (this.sku_id) {
-                let url = '/comments/'+ this.sku_id +'/';
+        get_movie_comment(){
+            if (this.movie_id) {
+                let url = '/comments/'+ this.movie_id +'/';
                 axios.get(url, {
                     responseType: 'json'
                 })

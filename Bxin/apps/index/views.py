@@ -25,6 +25,7 @@ class IndexView(View):
         for mo in movies:
 
             result_list.append({
+                "id":mo.id,
                 "name":mo.name,
                 "score":mo.score,
                 "image_file_id":mo.image_file_id,
