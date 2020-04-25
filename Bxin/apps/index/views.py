@@ -8,8 +8,10 @@ from django.views.generic import TemplateView
 
 from Bxin.settings import logger
 from .models import Movie, MovieDetail
+import jieba
 
 
+# 首页电影
 class IndexView(View):
     """提供首页电影"""
 
@@ -37,7 +39,7 @@ class IndexView(View):
             'contents': result_list,
         }
 
-        print(context)
+        # print(context)
 
         # 返回结果
         return render(request, 'index.html', context)
@@ -50,13 +52,34 @@ class AssWrodView(View):
 
     def get(self, request):
 
-        # 接收联想词
 
-        # 校验并查询
+        # 接收用户输入的字符串
+        str_name = request.GET.get('search')
 
-        # 构造格式
+        print(str_name)
 
+        # 分词
+        str_list = jieba.cut_for_search(str_name)
 
-        print("联想词")
+        # 查询
+        for str_ in str_list:
+
+            try:
+                movie = Movie.objects.filter(name__contains=str_)[:3]
+
+            except Exception as e:
+                logger.error(e)
+                return
+
+        data = []
+        # 遍历查出相似电影名
+        for mo in movie:
+
+            data.append({
+                "id":mo.id,
+                "name":mo.name,
+            })
+
+        print(data)
         # 返回响应
-        return http.JsonResponse({""})
+        return http.JsonResponse({'code':200,'errmsg':'OK','data':data})

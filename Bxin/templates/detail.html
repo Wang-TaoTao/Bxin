@@ -62,19 +62,20 @@
 
 
 	<div class="goods_detail_con clearfix">
-        <p>1 </p>
-        <p> 2</p>
-        <p> 3</p>
-        <p>4 </p>
-        <p> 5</p>
+        <br>
+         <br>
+         <br>
+        <br>
+         <br>
     {% for mod in moviedetail %}
 		<div class="goods_detail_pic fl"><img src="{{ movie.image_file_id.url }}"></div>
 		<div class="goods_detail_list fr">
 			<h3>{{ mod.name }}</h3>
+            <br>
 
 			<div class="price_bar">
-				<span class="show_pirce">☆☆☆☆<em>       {{ mod.score }}</em></span>
-				<a href="javascript:;" class="goods_judge">68人评价</a>
+                <span class="show_pirce"><em>{{ mod.score }}</em>  评分</span>
+				<a href="javascript:;" class="goods_judge">23668评价</a>
 			</div>
 
         <p>导演：{{ mod.direct }}</p>
@@ -85,42 +86,31 @@
         <p>语言：{{ mod.language }}</p>
         <p>上映日期：{{ mod.date }}</p>
 
-
-            {% endfor %}
+        {% endfor %}
+        <div class="operate_btn">
+				<a href="javascript:;" class="add_cart" id="add_cart" @click="add_carts">免费观看</a>
+			</div>
 			</div>
     </div>
-{#            <div class="type_select">#}
-{#                <label>导演:</label>#}
-{#                {% for mod in moviedetail %}#}
-{#                 #}
-{#                    <a href="javascript:;" class="select">{{ mod.direct }}</a>#}
-{#                    {% elif option.sku_id %}#}
-{#                    <a href="{{ url('goods:detail', args=(option.sku_id, )) }}">{{ option.value }}</a>#}
-{#                    {% else %}#}
-{#                    <a href="javascript:;">{{ option.value }}</a>#}
-{#                    {% endif %}#}
-{#                {% endfor %}#}
-{#            </div>#}
-{#            {% endfor %}#}
-{#			<div class="total" v-cloak>总价：<em>[[ sku_amount ]]元</em></div>#}
-{#			<div class="operate_btn">#}
-{#				<a href="javascript:;" class="add_cart" id="add_cart" @click="add_carts">加入购物车</a>#}
-{#			</div>#}
-{#		</div>#}
-{#	</div>#}
-{#	<div class="main_wrap clearfix">#}
-{#		<div class="l_wrap fl clearfix">#}
-{#			<div class="new_goods">#}
-{#				<h3>热销排行</h3>#}
-{#				<ul>#}
-{#                    <li v-for="sku in hot_skus">#}
-{#                        <a :href="sku.url"><img :src="sku.default_image_url"></a>#}
-{#                        <h4><a :href="sku.url">[[ sku.name ]]</a></h4>#}
-{#                        <div class="price">￥[[ sku.price ]]</div>#}
-{#                    </li>#}
-{#                </ul>#}
-{#			</div>#}
-{#		</div>#}
+{#			<div class="total" v-cloak><em></em>{% endfor %}</div>#}
+
+
+
+
+	<div class="main_wrap clearfix">
+		<div class="l_wrap fl clearfix">
+			<div class="new_goods">
+				<h3>热播电影排行</h3>
+				<ul>
+                    <li v-for="hmo in hot_movie">
+                        <a href="#"><img :src="hmo.image_file_id.url"></a>
+                        <h4><a href="#">[[ hmo.name ]]</a></h4>
+                        <div class="price">[[ hmo.score ]]</div>
+                    </li>
+                </ul>
+			</div>
+		</div>
+    </div>
 {#		<div class="r_wrap fr clearfix">#}
 {#			<ul class="detail_tab clearfix">#}
 {#				<li @click="on_tab_content('detail')" :class="tab_content.detail?'active':''">商品详情</li>#}
@@ -163,7 +153,7 @@
 {#							<div class="judge_detail">[[com.comment]]</div>#}
 {##}
 {#                        </div>#}
-{#					</li>			#}
+{#					</li>#}
 {#				</ul>#}
 {#			</div>#}
 {#		</div>#}
@@ -180,15 +170,15 @@
 		</div>
 		<p>CopyRight © 2020 北京豆瓣电影股份有限公司 All Rights Reserved</p>
 		<p>电话：010-****888    京ICP备*******8号</p>
-{#	</div>#}
+	</div>
 {#	</div>#}
     <script type="text/javascript">
-        let category_id = "{{ moviedetail.id }}";
-        let sku_price = "{{ movie.score }}";
-        let sku_id = "{{ movie.id }}";
+        let moviedetail_id = "{{ moviedetail.id }}";
+        let movie_score = "{{ movie.score }}";
+        let movie_id = "{{ movie.id }}";
 
     </script>
 	<script type="text/javascript" src="{{ static('js/common.js') }}"></script>
-{#	<script type="text/javascript" src="{{ static('js/detail.js') }}"></script>#}
+	<script type="text/javascript" src="{{ static('js/detail.js') }}"></script>
 </body>
 </html>

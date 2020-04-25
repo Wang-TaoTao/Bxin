@@ -46,7 +46,7 @@ html,body{height:100%}
 }
 
 
-/* logo、搜索框、购物车样式 */
+/* logo 样式 */
 
 .search_bar{width:1200px;height:115px;margin:0 auto;}
 .logo{width:150px;height:59px;margin:29px 0 0 17px;}
@@ -336,7 +336,7 @@ html,body{height:100%}
 
 
 
-/* 商品列表样式 */
+/* 电影列表样式 */
 
 .list_model{width:1200px;height:491px;margin:15px auto 0;}
 .list_title{height:40px;border-bottom:1px solid #719ef7}
@@ -447,7 +447,7 @@ html,body{height:100%}
 .r_wrap{width:980px;}
 
 
-/* 新品推荐样式 */
+/* 新影片推荐样式 */
 
 .new_goods{
 	border:1px solid #ededed;
@@ -563,7 +563,7 @@ html,body{height:100%}
 
 
 
-/* 商品列表样式 */
+/* 电影列表样式 */
 
 .sort_bar{height:30px;background-color:#fbf3f3}
 .sort_bar a{display:block;height:30px;line-height:30px;padding:0 20px;float:left;color:#000}
@@ -598,7 +598,7 @@ html,body{height:100%}
 .pagenation .active{background-color:#fff;color:#43a200}
 
 
-/* 商品详情样式 */
+/* 电影详情样式 */
 .goods_detail_con{
 	width:1198px;
 	border:1px solid #ededed;
@@ -606,7 +606,7 @@ html,body{height:100%}
 }
 
 .goods_detail_pic{width:350px;height:350px;margin:24px 0 0 24px;border:1px solid #ededed}
-.goods_detail_pic img{width:350px;height:350px;}
+.goods_detail_pic img{width:350px;height:400px;}
 .goods_detail_list{
 	width:730px;margin:24px 24px 0 0;
 }
@@ -1587,25 +1587,9 @@ html,body{height:100%}
 	margin-left:30px;
 }
 
-/*收货地址错误提示*/
-.receiver_error,.mobile_error,.place_error,.tel_error,.email_error {
-	color:#f00;margin-left:5px;
-}
 
-/*修改密码错误提示*/
-.old_pwd_error,.new_pwd_error,.new_cpwd_error {
-	color:#f00;margin-left:5px;
-}
 
-/*修改分页插件样式*/
-.ui-pagination-container {
-	line-height: 20px;
-}
 
-.ui-pagination-container .ui-pagination-page-item.active {
-	background: #f80000;
-	border-color: #f80000;
-}
 
 /*详情页添加数量提示样式*/
 .overtip{
@@ -1637,16 +1621,19 @@ html,body{height:100%}
 
 .search-bottom {
 	width: 100%;
-	z-index: 999999999;
-	display: none;
+        z-index: 999999999;
 }
 .search-bottom ul {
 	list-style: none;
 	width: 100%;
 }
 .search-bottom ul li {
-	font-size: 14px;
-	width: 100%;
-	padding: 10px 0;
-	border-bottom: 1px solid #CCC;
+	
+	width: 522px;
+	color: #000;
+	font: 14px arial;
+	line-height: 22px;
+	padding: 0 8px;
+	position: relative;
+	cursor: default;
 }

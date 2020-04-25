@@ -1,4 +1,4 @@
-// 此接口是联想词接口
+// 联想词接口
 const url = '/index/assword/'
 const inputText = document.querySelector('.input_text')
 const searchBottom = document.querySelector('.search-bottom')
@@ -27,6 +27,7 @@ inputText.addEventListener('input',function () {
         $.ajax({
             url,
             method: 'get',
+            data:{search:this.value},
             success: function (data) {
                 if(!this.value.trim()) {
                     return false
@@ -35,7 +36,8 @@ inputText.addEventListener('input',function () {
                     searchBottom.removeChild(ul)
                 }
                 searchBottom.style.display = this.value ? 'block' : this.onblur()
-                movieData = JSON.parse(data).data	
+                movieData = data.data
+                console.log(movieData)
                 wordDream.call(this,movieData)
             }.bind(this)
         })

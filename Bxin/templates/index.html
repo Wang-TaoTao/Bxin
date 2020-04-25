@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<div xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<title>豆瓣电影-首页</title>
@@ -10,7 +10,7 @@
     <script type="text/javascript" src="/static/js/axios-0.18.0.min.js"></script>
 	<script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
 </head>
-<body>
+<div>
 	<div id="app" v-cloak>
 	<div class="header_con">
 		<div class="header">
@@ -41,21 +41,21 @@
 {#		<a href="index.html" class="logo fl"><img src="images/logo.png"></a>#}
 		<div class="search_wrap fl">
 			<form method="get" action="/search/" class="search_con">
-                <input type="text" class="input_text fl" name="q" placeholder="搜索电影">
+                <input type="text" class="input_text fl" maxlength="255" name="q" placeholder="搜索电影">
                 <input type="submit" class="input_btn fr" name="" value="搜索">
             </form>
-{#                 <div class="search-bottom">#}
 
 
 
-			<ul class="search_suggest fl">
-				<li><a href="#">肖申克的救赎</a></li>
-				<li><a href="#">辛德勒的名单</a></li>
-				<li><a href="#">千与千寻</a></li>
-				<li><a href="#">星际穿越</a></li>
-			</ul>
-
+{#			<ul class="search_suggest fl">#}
+{#				<li><a href="#">肖申克的救赎</a></li>#}
+{#				<li><a href="#">辛德勒的名单</a></li>#}
+{#				<li><a href="#">千与千寻</a></li>#}
+{#				<li><a href="#">星际穿越</a></li>#}
+{#			</ul>#}
+            <div class="search-bottom"></div>
 		</div>
+    </div>
 
 
 
@@ -69,8 +69,6 @@
 
 
 
-
-	</div>
 
 	<div class="navbar_con">
 		<div class="navbar">
@@ -279,6 +277,7 @@
 		</div>
 	</div>
 
+
 	<div class="list_model">
 		<div class="list_title clearfix">
 			<h3 class="fl" id="model01">豆瓣电影 Top 1-90</h3>
@@ -298,6 +297,7 @@
 					<a href="#">高评</a>
 				</div>
 				<div class="key_words">
+
 					<a href="#">黑客帝国</a>
 					<a href="#">失恋33天</a>
 					<a href="#">怦然心动</a>
@@ -308,6 +308,7 @@
 					<a href="#">七武士</a>
 					<a href="#">一次别离</a>
 					<a href="#">乱世佳人</a>
+
 				</div>
 			</div>
 
@@ -354,6 +355,7 @@
             </div>
 
         </div>
+    </div>
 
 
     <div class="list_model model02">
@@ -430,6 +432,8 @@
             </div>
 
         </div>
+    </div>
+
     <div class="list_model model03">
 		<div class="list_title clearfix">
 			<h3 class="fl" id="model03">豆瓣电影 Top 182-250</h3>
@@ -505,6 +509,8 @@
 
         </div>
 
+    </div>
+
 
 
 
@@ -525,16 +531,18 @@
 		</div>
 		<p>CopyRight © 2020 北京豆瓣电影股份有限公司 All Rights Reserved</p>
 		<p>电话：010-****888    京ICP备*******8号</p>
-	</div>
-    </div>
+        </div>
+</div>
 
 
-	<script type="text/javascript" src="/static/js/slide.js"></script>
-	<script type="text/javascript" src="/static/js/index.js"></script>
-	<script type="text/javascript" src="/static/js/common.js"></script>
-    <script type="text/javascript" src="/static/js/dream_word.js"></script>
+        <script type="text/javascript" src="/static/js/slide.js"></script>
+        <script type="text/javascript" src="/static/js/index.js"></script>
+        <script type="text/javascript" src="/static/js/common.js"></script>
+        <script type="text/javascript" src="/static/js/dream_word.js"></script>
 
 </body>
 </html>
+
+
 
 
