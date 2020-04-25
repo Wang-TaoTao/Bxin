@@ -27,8 +27,6 @@ class DetailView(View):
             logger.error(e)
             return render(request, '404.html')
 
-
-
         # 渲染页面
         context = {
             'movie': movie,
@@ -39,27 +37,30 @@ class DetailView(View):
         return render(request, 'detail.html', context)
 
 
+
+
 # 电影详情页热播电影
-# class HotMovieView(View):
-#
-#     def get(self, request, movie_id):
-#
-#         # 查询电影信息
-#         try:
-#             movie = Movie.objects.order_by('-score')[:2]
-#         except Exception as e:
-#             logger.error(e)
-#             return render(request, '404.html')
-#
-#         # 构造数据格式
-#         hot_movie = []
-#         for mo in movie:
-#
-#             hot_movie.append({
-#                 'movie_id':mo.id,
-#                 'name':mo.name,
-#                 'score':mo.score,
-#
-#             })
-#         # 返回响应
-#         return http.JsonResponse({'code': 200, 'errmsg': 'OK', 'hot_movie': hot_movie})
+class HotMovieView(View):
+
+    def get(self, request, movie_id):
+
+        # 查询电影信息
+        try:
+            movie = Movie.objects.order_by('-score')[:2]
+        except Exception as e:
+            logger.error(e)
+            return render(request, '404.html')
+
+        # 构造数据格式
+        hot_movie = []
+        for mo in movie:
+
+            hot_movie.append({
+                'movie_id':mo.id,
+                'name':mo.name,
+                'score':mo.score,
+            })
+
+        print(hot_movie)
+        # 返回响应
+        return http.JsonResponse({'code': 200, 'errmsg': 'OK', 'hot_movie': hot_movie})

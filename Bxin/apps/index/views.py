@@ -16,7 +16,7 @@ class IndexView(View):
     """提供首页电影"""
 
     def get(self, request):
-
+        # 查询所有电影
         try:
             movies = Movie.objects.all()
         except Exception as e:
@@ -32,16 +32,13 @@ class IndexView(View):
                 "score":mo.score,
                 "image_file_id":mo.image_file_id,
             })
-
-
+        # 构造数据
         context = {
 
             'contents': result_list,
         }
 
-        # print(context)
-
-        # 返回结果
+        # 返回响应
         return render(request, 'index.html', context)
 
 
@@ -52,15 +49,10 @@ class AssWrodView(View):
 
     def get(self, request):
 
-
         # 接收用户输入的字符串
         str_name = request.GET.get('search')
-
-        print(str_name)
-
         # 分词
         str_list = jieba.cut_for_search(str_name)
-
         # 查询
         for str_ in str_list:
 
@@ -70,7 +62,6 @@ class AssWrodView(View):
             except Exception as e:
                 logger.error(e)
                 return
-
         data = []
         # 遍历查出相似电影名
         for mo in movie:
@@ -80,6 +71,5 @@ class AssWrodView(View):
                 "name":mo.name,
             })
 
-        print(data)
         # 返回响应
         return http.JsonResponse({'code':200,'errmsg':'OK','data':data})
