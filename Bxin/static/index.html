@@ -1,0 +1,1060 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>豆瓣电影-首页</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <script type="text/javascript" src="/static/js/host.js"></script>
+	<script type="text/javascript" src="/static/js/vue-2.5.16.js"></script>
+    <script type="text/javascript" src="/static/js/axios-0.18.0.min.js"></script>
+	<script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
+</head>
+<div>
+	<div id="app" v-cloak>
+	<div class="header_con">
+		<div class="header">
+			<div class="welcome fl">欢迎来到豆瓣电影!</div>
+			<div class="fr">
+				<div class="login_info fl">
+					欢迎您：<em>WTT</em>
+
+					<a href="javascript:;" class="quit">退出</a>
+				</div>
+				<div class="login_btn fl">
+					<a href="/login">登录</a>
+					<span>|</span>
+					<a href="/register">注册</a>
+				</div>
+				<div class="user_link fl">
+					<span>|</span>
+					<a href="#">个人中心</a>
+					<span>|</span>
+					<a href="#">我的影视收藏</a>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="search_bar clearfix">
+
+		<div class="search_wrap fl">
+			<form method="get" action="/search/" class="search_con">
+                <input type="text" class="input_text fl" maxlength="255" name="q" placeholder="搜索电影">
+                <input type="submit" class="input_btn fr" name="" value="搜索">
+            </form>
+
+
+
+
+
+
+
+
+
+            <div class="search-bottom"></div>
+		</div>
+    </div>
+
+
+
+    <div class="guest_cart fr">
+            <a href="#" class="cart_name fl">小电影</a>
+            <div class="goods_count fl" id="show_count">9</div>
+            <ul class="cart_goods_show">
+
+            </ul>
+		</div>
+
+
+
+
+	<div class="navbar_con">
+		<div class="navbar">
+			<h1 class="fl">电影分类</h1>
+			<ul class="navlist fl">
+				<li><a href="">最新上映</a></li>
+				<li class="interval">|</li>
+				<li><a href="">热度</a></li>
+				<li class="interval">|</li>
+				<li><a href="">评分最高</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="pos_center_con clearfix">
+		<ul class="slide">
+			<li><a href="#"><img src="/static/images2/hdp3.png" alt="幻灯片01"></a></li>
+			<li><a href="#"><img src="/static/images2/hpd2.png" alt="幻灯片02"></a></li>
+			<li><a href="#"><img src="/static/images2/hdp1.png" alt="幻灯片03"></a></li>
+		</ul>
+		<div class="prev"></div>
+		<div class="next"></div>
+		<ul class="points">
+		</ul>
+		<ul class="sub_menu">
+			<li>
+				<div class="level1">
+					<a href="#/">剧情</a><a href="#">喜剧</a><a href="#">动作</a><a href="#">恐怖</a>
+				</div>
+				<div class="level2">
+					<div class="list_group">
+						<div class="group_name fl">小电影 &gt;</div>
+						<div class="group_detail fl">
+							<a href="#">1</a>
+							<a href="#">2</a>
+							<a href="#">3</a>
+							<a href="#">4</a>
+						</div>
+					</div>
+
+
+				</div>
+			</li>
+
+			<li>
+				<div class="level1">
+					<a href="#">爱情</a><a href="#">惊悚</a><a href="#">迷信</a>
+				</div>
+				<div class="level2">
+					<div class="list_group">
+						<div class="group_name fl">小电影1 &gt;</div>
+						<div class="group_detail fl">
+							<a href="#">6</a>
+							<a href="#">7</a>
+							<a href="#">8</a>
+							<a href="#">9</a>
+							<a href="#">10</a>
+							<a href="#">11</a>
+							<a href="#">12</a>
+							<a href="#">13</a>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="level1">
+					<a href="#">科学</a><a href="#">犯罪</a><a href="#">悬疑</a><a href="#">战争</a>
+				</div>
+				<div class="level2">
+					<div class="list_group">
+						<div class="group_name fl">小电影3 &gt;</div>
+						<div class="group_detail fl">
+							<a href="#">14</a>
+							<a href="#">15</a>
+							<a href="#">16</a>
+							<a href="#">17</a>
+							<a href="#">18</a>
+							<a href="#">19</a>
+							<a href="#">20</a>
+							<a href="#">21</a>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="level1">
+					<a href="#">科幻</a><a href="#">动画</a><a href="#">家庭</a><a href="#">传记</a>
+				</div>
+				<div class="level2">
+					<div class="list_group">
+						<div class="group_name fl">小电影4 &gt;</div>
+						<div class="group_detail fl">
+							<a href="#">22</a>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="level1">
+					<a href="#">冒险</a><a href="#">奇幻</a><a href="#">武侠</a><a href="#">历史</a>
+				</div>
+				<div class="level2">
+					<div class="list_group">
+						<div class="group_name fl">小电影5 &gt;</div>
+						<div class="group_detail fl">
+							<a href="#">23</a>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="level1">
+					<a href="#">运动</a><a href="#">歌舞</a><a href="#">音乐</a>
+				</div>
+				<div class="level2">
+					<div class="list_group">
+						<div class="group_name fl">小电影6 &gt;</div>
+						<div class="group_detail fl">
+							<a href="#">24</a>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="level1">
+					<a href="#">记录</a><a href="#">伦理</a><a href="#">西部</a>
+				</div>
+				<div class="level2">
+					<div class="list_group">
+						<div class="group_name fl">小电影7 &gt;</div>
+						<div class="group_detail fl">
+							<a href="#">25</a>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="level1">
+					<a href="#">内地</a><a href="#">美国</a><a href="#">北欧</a>
+				</div>
+				<div class="level2">
+					<div class="list_group">
+						<div class="group_name fl">小电影8 &gt;</div>
+						<div class="group_detail fl">
+							<a href="#">26</a>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="level1">
+					<a href="#">欧洲</a><a href="#">日本</a><a href="#">韩国</a><a href="#">印度</a>
+				</div>
+				<div class="level2">
+					<div class="list_group">
+						<div class="group_name fl">小电影9 &gt;</div>
+						<div class="group_detail fl">
+							<a href="#">27</a>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="level1">
+					<a href="#">泰国</a><a href="#">法国</a><a href="#">德国</a>
+				</div>
+				<div class="level2">
+					<div class="list_group">
+						<div class="group_name fl">小电影10 &gt;</div>
+						<div class="group_detail fl">
+							<a href="#">28</a>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="level1">
+					<a href="#">加拿大</a><a href="#">西班牙</a><a href="#">意大利</a>
+				</div>
+				<div class="level2">
+					<div class="list_group">
+						<div class="group_name fl">小电影11 &gt;</div>
+						<div class="group_detail fl">
+							<a href="#">29</a>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+
+		<div class="news">
+			<div class="news_title">
+				<h3>猜你会追</h3>
+				<a href="#">更多 &gt;</a>
+			</div>
+			<ul class="news_list">
+				<li><a href="#">终结者终结篇章</a></li>
+				<li><a href="#">倩女幽魂新版</a></li>
+				<li><a href="#">斗战苍穹抢先观看</a></li>
+				<li><a href="#">圆环行动会员免费看</a></li>
+				<li><a href="#">大神猴1上映啦</a></li>
+				<li><a href="#">飞鱼服飞鱼来了</a></li>
+				<li><a href="#">锦衣卫带刀侍卫</a></li>
+			</ul>
+
+		</div>
+	</div>
+
+
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model01">豆瓣电影 Top 1-90</h3>
+			<div class="subtitle fr">
+				<a href="javascript:;" @mouseenter="f1_tab=1" :class="f1_tab===1?'active':''">最新推荐</a>
+				<a href="javascript:;" @mouseenter="f1_tab=2" :class="f1_tab===2?'active':''">经典老片</a>
+				<a href="javascript:;" @mouseenter="f1_tab=3" :class="f1_tab===3?'active':''">豆瓣好评</a>
+			</div>
+		</div>
+		<div class="goods_con clearfix">
+			<div class="goods_banner fl">
+				<img src="/static/images2/35.jpg">
+				<div class="channel">
+					<a href="#">最新</a>
+					<a href="#">最热</a>
+					<a href="#">评分</a>
+					<a href="#">高评</a>
+				</div>
+				<div class="key_words">
+
+					<a href="#">黑客帝国</a>
+					<a href="#">失恋33天</a>
+					<a href="#">怦然心动</a>
+					<a href="#">分手大师</a>
+					<a href="#">2012</a>
+					<a href="#">东京物语</a>
+					<a href="#">七宗罪</a>
+					<a href="#">七武士</a>
+					<a href="#">一次别离</a>
+					<a href="#">乱世佳人</a>
+
+				</div>
+			</div>
+
+
+			<div class="goods_list_con">
+
+				<ul class="goods_list fl" v-show="f1_tab===1">
+                    
+					<li>
+
+						<a href="/detail/1" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0A/wKgFgF6iqhqAZA5bAABlWZeqimk638.jpg"></a>
+						<h4><a href="#" title="肖申克的救赎">肖申克的救赎</a></h4>
+						<div class="price">9.7</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/2" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0A/wKgFgF6iqhqAXrgeAABPZ-_Tm3E243.jpg"></a>
+						<h4><a href="#" title="霸王别姬">霸王别姬</a></h4>
+						<div class="price">9.6</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/3" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0A/wKgFgF6iqhqAHePoAAA6vLwc67I200.jpg"></a>
+						<h4><a href="#" title="阿甘正传">阿甘正传</a></h4>
+						<div class="price">9.5</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/4" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0A/wKgFgF6iqhqAPF9OAABYZxoSkBw493.jpg"></a>
+						<h4><a href="#" title="这个杀手不太冷">这个杀手不太冷</a></h4>
+						<div class="price">9.4</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/5" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0A/wKgFgF6iqhqAOU32AACCx-TEUOk296.jpg"></a>
+						<h4><a href="#" title="美丽人生">美丽人生</a></h4>
+						<div class="price">9.5</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/6" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0A/wKgFgF6iqhqAU1jCAABseghUV2c481.jpg"></a>
+						<h4><a href="#" title="泰坦尼克号">泰坦尼克号</a></h4>
+						<div class="price">9.4</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/7" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhuAAO4SAABH81Y4iE0018.jpg"></a>
+						<h4><a href="#" title="千与千寻">千与千寻</a></h4>
+						<div class="price">9.4</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/8" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhuAYIY0AABn2tv6k4o223.jpg"></a>
+						<h4><a href="#" title="辛德勒的名单">辛德勒的名单</a></h4>
+						<div class="price">9.5</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/9" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhuAQGITAACBKEkCVQY661.jpg"></a>
+						<h4><a href="#" title="盗梦空间">盗梦空间</a></h4>
+						<div class="price">9.3</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/10" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhuAVi4UAABp86Yjq-8994.jpg"></a>
+						<h4><a href="#" title="忠犬八公的故事">忠犬八公的故事</a></h4>
+						<div class="price">9.4</div>
+					</li>
+                    
+
+				</ul>
+
+
+
+
+				<ul class="goods_list fl" v-show="f1_tab===2">
+                    
+					<li>
+						<a href="/detail/12" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhuACKmoAACzIdd4sdM006.jpg"></a>
+						<h4><a href="#" title="楚门的世界">楚门的世界</a></h4>
+						<div class="price">9.3</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/13" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhuAXtaoAAB8ZC1bVxs178.jpg"></a>
+						<h4><a href="#" title="三傻大闹宝莱坞">三傻大闹宝莱坞</a></h4>
+						<div class="price">9.2</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/14" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhuAE8iVAABfbeRMTLI676.jpg"></a>
+						<h4><a href="#" title="机器人总动员">机器人总动员</a></h4>
+						<div class="price">9.3</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/15" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhuAe9_jAACQ9ZxIUDI464.jpg"></a>
+						<h4><a href="#" title="放牛班的春天">放牛班的春天</a></h4>
+						<div class="price">9.3</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/16" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhuAT1gkAABiu2uwVuY673.jpg"></a>
+						<h4><a href="#" title="星际穿越">星际穿越</a></h4>
+						<div class="price">9.3</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/17" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhuAdUkSAABXJGd7JIo734.jpg"></a>
+						<h4><a href="#" title="大话西游之大圣娶亲">大话西游之大圣娶亲</a></h4>
+						<div class="price">9.2</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/18" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhuAVduHAABcJjxzdXo936.jpg"></a>
+						<h4><a href="#" title="熔炉">熔炉</a></h4>
+						<div class="price">9.3</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/19" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhuAfOucAACNkQmxdjE845.jpg"></a>
+						<h4><a href="#" title="疯狂动物城">疯狂动物城</a></h4>
+						<div class="price">9.2</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/20" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhyALfocAABNReIMgog979.jpg"></a>
+						<h4><a href="#" title="无间道">无间道</a></h4>
+						<div class="price">9.2</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/21" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhyAIciCAABLuGehiEE029.jpg"></a>
+						<h4><a href="#" title="龙猫">龙猫</a></h4>
+						<div class="price">9.2</div>
+					</li>
+                    
+				</ul>
+
+
+
+
+				<ul class="goods_list fl" v-show="f1_tab===3">
+                    
+					<li>
+						<a href="/detail/22" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhyAAyFGAABEuaQORTU826.jpg"></a>
+						<h4><a href="#" title="教父">教父</a></h4>
+						<div class="price">9.3</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/23" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhyAHZKTAABRZi9y4-0161.jpg"></a>
+						<h4><a href="#" title="当幸福来敲门">当幸福来敲门</a></h4>
+						<div class="price">9.1</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/24" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhyAbm95AABv9Jo_9QI424.jpg"></a>
+						<h4><a href="#" title="怦然心动">怦然心动</a></h4>
+						<div class="price">9.1</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/25" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhyARVf1AABqhfv_Hgg285.jpg"></a>
+						<h4><a href="#" title="触不可及">触不可及</a></h4>
+						<div class="price">9.2</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/26" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhyAOoM2AABf5_XOG5Y534.jpg"></a>
+						<h4><a href="#" title="蝙蝠侠：黑暗骑士">蝙蝠侠：黑暗骑士</a></h4>
+						<div class="price">9.2</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/27" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhyAWCoNAABvFX3CMOk862.jpg"></a>
+						<h4><a href="#" title="控方证人">控方证人</a></h4>
+						<div class="price">9.6</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/28" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhyAQDrNAABseT3eA64495.jpg"></a>
+						<h4><a href="#" title="活着">活着</a></h4>
+						<div class="price">9.2</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/29" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhyAXBymAABvyO0dy7k512.jpg"></a>
+						<h4><a href="#" title="乱世佳人">乱世佳人</a></h4>
+						<div class="price">9.3</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/30" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhyACAXDAACVRTMbhF0739.jpg"></a>
+						<h4><a href="#" title="寻梦环游记">寻梦环游记</a></h4>
+						<div class="price">9.1</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/31" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhyAPomnAABbaLtMAag315.jpg"></a>
+						<h4><a href="#" title="末代皇帝">末代皇帝</a></h4>
+						<div class="price">9.2</div>
+					</li>
+                    
+				</ul>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="list_model model02">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model02">豆瓣电影 Top 91-181</h3>
+			<div class="subtitle fr">
+				<a href="javascript:;" @mouseenter="f2_tab=1" :class="f2_tab===1?'active':''">精神食粮</a>
+				<a href="javascript:;" @mouseenter="f2_tab=2" :class="f2_tab===2?'active':''">加个餐吧</a>
+
+
+			</div>
+		</div>
+		<div class="goods_con clearfix">
+			<div class="goods_banner fl">
+				<img src="/static/images2/150.jpg">
+				<div class="channel">
+					<a href="#">最新</a>
+					<a href="#">最热</a>
+					<a href="#">评分</a>
+					<a href="#">高评</a>
+				</div>
+				<div class="key_words">
+					<a href="#">黑客帝国</a>
+					<a href="#">失恋33天</a>
+					<a href="#">怦然心动</a>
+					<a href="#">分手大师</a>
+					<a href="#">2012</a>
+					<a href="#">东京物语</a>
+					<a href="#">七宗罪</a>
+					<a href="#">七武士</a>
+					<a href="#">一次别离</a>
+					<a href="#">乱世佳人</a>
+				</div>
+			</div>
+
+
+			<div class="goods_list_con">
+
+				<ul class="goods_list fl" v-show="f2_tab===1">
+                    
+					<li>
+
+						<a href="/detail/32" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhyAN4dMAACH5VxUPB4759.jpg"></a>
+						<h4><a href="#" title="摔跤吧！爸爸">摔跤吧！爸爸</a></h4>
+						<div class="price">9.0</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/33" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhyAMB2FAABjlu1lY34848.jpg"></a>
+						<h4><a href="#" title="指环王3：王者无敌">指环王3：王者无敌</a></h4>
+						<div class="price">9.2</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/34" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhyAM-eHAABXyGttGho257.jpg"></a>
+						<h4><a href="#" title="少年派的奇幻漂流">少年派的奇幻漂流</a></h4>
+						<div class="price">9.1</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/35" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhyAGIFYAABTfKHA_P4612.jpg"></a>
+						<h4><a href="#" title="何以为家">何以为家</a></h4>
+						<div class="price">9.1</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/36" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhyAJOzMAAAph0ODcrw770.jpg"></a>
+						<h4><a href="#" title="飞屋环游记">飞屋环游记</a></h4>
+						<div class="price">9.0</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/37" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqhyAUynrAABtsWlmfUg522.jpg"></a>
+						<h4><a href="#" title="十二怒汉">十二怒汉</a></h4>
+						<div class="price">9.4</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/38" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh2Aen9yAABeqgj56RY407.jpg"></a>
+						<h4><a href="#" title="鬼子来了">鬼子来了</a></h4>
+						<div class="price">9.2</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/39" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh2AMyWXAABLJOSvsIE862.jpg"></a>
+						<h4><a href="#" title="天空之城">天空之城</a></h4>
+						<div class="price">9.1</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/40" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh2AD0BuAABbiO0XWJY489.jpg"></a>
+						<h4><a href="#" title="大话西游之月光宝盒">大话西游之月光宝盒</a></h4>
+						<div class="price">9.0</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/41" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh2AYey-AACV8-RFsDA601.jpg"></a>
+						<h4><a href="#" title="哈尔的移动城堡">哈尔的移动城堡</a></h4>
+						<div class="price">9.1</div>
+					</li>
+                    
+				</ul>
+
+
+
+				<ul class="goods_list fl" v-show="f2_tab===2">
+                    
+					<li>
+						<a href="/detail/43" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh2APVeWAABiYQgbGhI882.jpg"></a>
+						<h4><a href="#" title="天堂电影院">天堂电影院</a></h4>
+						<div class="price">9.2</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/44" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh2AZU4UAABmp2-qX_o392.jpg"></a>
+						<h4><a href="#" title="罗马假日">罗马假日</a></h4>
+						<div class="price">9.0</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/45" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh2AdoiRAABhepL2Fx0202.jpg"></a>
+						<h4><a href="#" title="闻香识女人">闻香识女人</a></h4>
+						<div class="price">9.1</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/46" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh2AVULRAABv3KOHtoE536.jpg"></a>
+						<h4><a href="#" title="辩护人">辩护人</a></h4>
+						<div class="price">9.2</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/47" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh2AWBpsAABLf9m2zSo447.jpg"></a>
+						<h4><a href="#" title="哈利·波特与魔法石">哈利·波特与魔法石</a></h4>
+						<div class="price">9.0</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/48" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh2APpePAABmoruxUkw699.jpg"></a>
+						<h4><a href="#" title="搏击俱乐部">搏击俱乐部</a></h4>
+						<div class="price">9.0</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/49" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh2AblV4AAB1elSgUfk490.jpg"></a>
+						<h4><a href="#" title="我不是药神">我不是药神</a></h4>
+						<div class="price">9.0</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/50" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh2Ae-f5AABfP3EyQ-8175.jpg"></a>
+						<h4><a href="#" title="死亡诗社">死亡诗社</a></h4>
+						<div class="price">9.1</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/51" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh2AECBNAABUJY9M1b8957.jpg"></a>
+						<h4><a href="#" title="教父2">教父2</a></h4>
+						<div class="price">9.2</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/52" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh2AW1ZyAABeEG9r53U572.jpg"></a>
+						<h4><a href="#" title="指环王2：双塔奇兵">指环王2：双塔奇兵</a></h4>
+						<div class="price">9.1</div>
+					</li>
+                    
+				</ul>
+
+
+
+
+				<ul class="goods_list fl" v-show="f2_tab===3">
+                    
+					<li>
+						<a href="/detail/54" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh2AeYJ1AABLUN11pa8628.jpg"></a>
+						<h4><a href="#" title="窃听风暴">窃听风暴</a></h4>
+						<div class="price">9.1</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/55" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh2ABatXAABDfsVyofA101.jpg"></a>
+						<h4><a href="#" title="大闹天宫">大闹天宫</a></h4>
+						<div class="price">9.3</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/56" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh2ASSEsAABteYbM6lU036.jpg"></a>
+						<h4><a href="#" title="指环王1：魔戒再现">指环王1：魔戒再现</a></h4>
+						<div class="price">9.0</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/57" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh6AaHR9AABb3qhZOYk557.jpg"></a>
+						<h4><a href="#" title="两杆大烟枪">两杆大烟枪</a></h4>
+						<div class="price">9.1</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/58" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh6ACgrPAABgIw_h1gA247.jpg"></a>
+						<h4><a href="#" title="美丽心灵">美丽心灵</a></h4>
+						<div class="price">9.0</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/59" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh6AYaJwAABx8jteR1w457.jpg"></a>
+						<h4><a href="#" title="饮食男女">饮食男女</a></h4>
+						<div class="price">9.1</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/60" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh6AJduuAABsqd2eY1E637.jpg"></a>
+						<h4><a href="#" title="飞越疯人院">飞越疯人院</a></h4>
+						<div class="price">9.1</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/61" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh6AcIvbAAA_iCIE2rs825.jpg"></a>
+						<h4><a href="#" title="猫鼠游戏">猫鼠游戏</a></h4>
+						<div class="price">9.0</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/62" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh6AbN6oAABjb-UwcK8560.jpg"></a>
+						<h4><a href="#" title="黑客帝国">黑客帝国</a></h4>
+						<div class="price">9.0</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/63" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh6ADX-NAAA1oxDdEdk163.jpg"></a>
+						<h4><a href="#" title="钢琴家">钢琴家</a></h4>
+						<div class="price">9.2</div>
+					</li>
+                    
+				</ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="list_model model03">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model03">豆瓣电影 Top 182-250</h3>
+			<div class="subtitle fr">
+				<a href="javascript:;" @mouseenter="f3_tab=1" :class="f3_tab===1?'active':''">最新推荐</a>
+				<a href="javascript:;" @mouseenter="f3_tab=2" :class="f3_tab===2?'active':''">经典老片</a>
+
+
+			</div>
+		</div>
+		<div class="goods_con clearfix">
+			<div class="goods_banner fl">
+				<img src="/static/images2/250.jpg">
+				<div class="channel">
+					<a href="#">最新</a>
+					<a href="#">最热</a>
+					<a href="#">评分</a>
+					<a href="#">高评</a>
+				</div>
+				<div class="key_words">
+					<a href="#">黑客帝国</a>
+					<a href="#">失恋33天</a>
+					<a href="#">怦然心动</a>
+					<a href="#">分手大师</a>
+					<a href="#">2012</a>
+					<a href="#">东京物语</a>
+					<a href="#">七宗罪</a>
+					<a href="#">七武士</a>
+					<a href="#">一次别离</a>
+					<a href="#">乱世佳人</a>
+				</div>
+			</div>
+
+
+			<div class="goods_list_con">
+
+				<ul class="goods_list fl" v-show="f3_tab===1">
+                    
+					<li>
+
+						<a href="/detail/65" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh6ACmJIAABeYE93wNw975.jpg"></a>
+						<h4><a href="#" title="本杰明·巴顿奇事">本杰明·巴顿奇事</a></h4>
+						<div class="price">8.9</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/66" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh6ACleyAABlb2u8VL8839.jpg"></a>
+						<h4><a href="#" title="看不见的客人">看不见的客人</a></h4>
+						<div class="price">8.8</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/67" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh6AJ60UAABRwNLRH8s845.jpg"></a>
+						<h4><a href="#" title="让子弹飞">让子弹飞</a></h4>
+						<div class="price">8.8</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/68" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh6AedOjAABqbWFAiAg886.jpg"></a>
+						<h4><a href="#" title="西西里的美丽传说">西西里的美丽传说</a></h4>
+						<div class="price">8.9</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/69" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh6AYvyCAABRjrAkKMg525.jpg"></a>
+						<h4><a href="#" title="小鞋子">小鞋子</a></h4>
+						<div class="price">9.2</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/70" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh6AKl2eAABMZktLa_M543.jpg"></a>
+						<h4><a href="#" title="海豚湾">海豚湾</a></h4>
+						<div class="price">9.3</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/71" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh6AdEBeAABLNQVI_-4882.jpg"></a>
+						<h4><a href="#" title="拯救大兵瑞恩">拯救大兵瑞恩</a></h4>
+						<div class="price">9.0</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/72" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh6AZK85AAA-tiKgpcU706.jpg"></a>
+						<h4><a href="#" title="情书">情书</a></h4>
+						<div class="price">8.9</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/73" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh6AQmJ4AABq9wVZro4372.jpg"></a>
+						<h4><a href="#" title="穿条纹睡衣的男孩">穿条纹睡衣的男孩</a></h4>
+						<div class="price">9.1</div>
+					</li>
+                    
+					<li>
+
+						<a href="/detail/74" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh6AV9uHAACc-Uli2zE853.jpg"></a>
+						<h4><a href="#" title="音乐之声">音乐之声</a></h4>
+						<div class="price">9.0</div>
+					</li>
+                    
+				</ul>
+
+
+
+				<ul class="goods_list fl" v-show="f3_tab===2">
+                    
+					<li>
+						<a href="/detail/76" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh-AEKmQAABc2X5LjHA241.jpg"></a>
+						<h4><a href="#" title="绿皮书">绿皮书</a></h4>
+						<div class="price">8.9</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/77" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh-AFTNhAABxL2NK44Y594.jpg"></a>
+						<h4><a href="#" title="致命魔术">致命魔术</a></h4>
+						<div class="price">8.9</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/78" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh-APFQ_AAB_eKgG3XM561.jpg"></a>
+						<h4><a href="#" title="海蒂和爷爷">海蒂和爷爷</a></h4>
+						<div class="price">9.2</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/79" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh-Ab15WAACDBVR-Oh0856.jpg"></a>
+						<h4><a href="#" title="低俗小说">低俗小说</a></h4>
+						<div class="price">8.8</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/80" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh-ANXvbAAB6mosgwGk902.jpg"></a>
+						<h4><a href="#" title="七宗罪">七宗罪</a></h4>
+						<div class="price">8.8</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/81" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh-AHX8AAABJdSLG4Fk573.jpg"></a>
+						<h4><a href="#" title="沉默的羔羊">沉默的羔羊</a></h4>
+						<div class="price">8.8</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/82" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh-AClrTAABXgl9uKtc176.jpg"></a>
+						<h4><a href="#" title="蝴蝶效应">蝴蝶效应</a></h4>
+						<div class="price">8.8</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/83" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh-AWiOmAABdqK0F5F0055.jpg"></a>
+						<h4><a href="#" title="春光乍泄">春光乍泄</a></h4>
+						<div class="price">8.9</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/84" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh-AVKpEAABTQ-TFoqU317.jpg"></a>
+						<h4><a href="#" title="禁闭岛">禁闭岛</a></h4>
+						<div class="price">8.8</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/85" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh-AOQN0AACJKbT6cyw638.jpg"></a>
+						<h4><a href="#" title="被嫌弃的松子的一生">被嫌弃的松子的一生</a></h4>
+						<div class="price">8.9</div>
+					</li>
+                    
+				</ul>
+
+
+
+
+				<ul class="goods_list fl" v-show="f3_tab===3">
+                    
+					<li>
+						<a href="/detail/87" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh-AdA5gAACOE0iU2TI788.jpg"></a>
+						<h4><a href="#" title="布达佩斯大饭店">布达佩斯大饭店</a></h4>
+						<div class="price">8.8</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/88" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh-ATy9KAABiR6jv6-o343.jpg"></a>
+						<h4><a href="#" title="阿凡达">阿凡达</a></h4>
+						<div class="price">8.7</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/89" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh-ARCAZAABqsUawBWE098.jpg"></a>
+						<h4><a href="#" title="剪刀手爱德华">剪刀手爱德华</a></h4>
+						<div class="price">8.7</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/90" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh-ASG1dAABal6FhgVo564.jpg"></a>
+						<h4><a href="#" title="勇敢的心">勇敢的心</a></h4>
+						<div class="price">8.9</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/91" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh-AI3YkAAB_C0H2tFw630.jpg"></a>
+						<h4><a href="#" title="摩登时代">摩登时代</a></h4>
+						<div class="price">9.3</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/92" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh-AelkfAABNXvK2-wE727.jpg"></a>
+						<h4><a href="#" title="天使爱美丽">天使爱美丽</a></h4>
+						<div class="price">8.7</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/93" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh-AWnxgAABfXpHsqcc495.jpg"></a>
+						<h4><a href="#" title="喜剧之王">喜剧之王</a></h4>
+						<div class="price">8.7</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/94" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqh-AZb-wAAB1In0Rt10492.jpg"></a>
+						<h4><a href="#" title="加勒比海盗">加勒比海盗</a></h4>
+						<div class="price">8.7</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/95" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqiCAW0_aAABGYvHDdAM439.jpg"></a>
+						<h4><a href="#" title="致命ID">致命ID</a></h4>
+						<div class="price">8.8</div>
+					</li>
+                    
+					<li>
+						<a href="/detail/96" class="goods_pic"><img src="http://image.Bxin.com:8888/group1/M00/00/0B/wKgFgF6iqiCAZTL1AABrzXB0suw038.jpg"></a>
+						<h4><a href="#" title="断背山">断背山</a></h4>
+						<div class="price">8.8</div>
+					</li>
+                    
+				</ul>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+	<div class="footer">
+		<div class="foot_link">
+			<a href="#">关于豆瓣</a>
+			<span>|</span>
+			<a href="#">联系豆瓣</a>
+			<span>|</span>
+			<a href="#">招聘人才</a>
+			<span>|</span>
+			<a href="#">意见反馈</a>
+		</div>
+		<p>CopyRight © 2020 北京豆瓣电影股份有限公司 All Rights Reserved</p>
+		<p>电话：010-****888    京ICP备*******8号</p>
+        </div>
+</div>
+
+
+        <script type="text/javascript" src="/static/js/slide.js"></script>
+        <script type="text/javascript" src="/static/js/index.js"></script>
+        <script type="text/javascript" src="/static/js/common.js"></script>
+        <script type="text/javascript" src="/static/js/dream_word.js"></script>
+
+</body>
+</html>
+
+
+

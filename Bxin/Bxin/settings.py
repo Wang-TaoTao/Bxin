@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'haystack',
     # 跨域
     'corsheaders',
+    # 定时任务
+    'django_crontab',
+
 ]
 
 MIDDLEWARE = [
@@ -235,7 +238,14 @@ FDFS_URL = 'http://192.168.5.128:8000/'
 DEFAULT_FILE_STORAGE = 'utils.fastdfs.fastdfs_storage.FastDFSStorage'
 
 # FastDFS相关参数
-# FDFS_BASE_URL = 'http://192.168.5.158:8888/'
-
 PDFS_BASE_URL = 'http://image.Bxin.com:8888/'
 
+
+# 定时任务
+CRONJOBS = [
+    # 每1分钟生成一次首页静态文件
+    ('*/1 * * * *', 'apps.index.crons.generate_static_index_html', '>> ' + os.path.join(BASE_DIR, 'logs/crontab.log'))
+]
+
+# 定时任务解决非中文问题
+CRONTAB_COMMAND_PREFIX = 'LANG_ALL=zh_cn.UTF-8'

@@ -92,72 +92,8 @@
 			</div>
 			</div>
     </div>
-{#			<div class="total" v-cloak><em></em>{% endfor %}</div>#}
 
 
-
-
-	<div class="main_wrap clearfix">
-		<div class="l_wrap fl clearfix">
-			<div class="new_goods">
-				<h3>热播电影排行</h3>
-				<ul>
-                    <li v-for="hmo in hot_movie">
-{#                        <a href="#"><img :src="hmo.image_file_id.url"></a>#}
-                        <h4><a href="#">[[ hmo.name ]]</a></h4>
-                        <div class="price">[[ hmo.score ]]</div>
-                    </li>
-                </ul>
-			</div>
-		</div>
-    </div>
-{#		<div class="r_wrap fr clearfix">#}
-{#			<ul class="detail_tab clearfix">#}
-{#				<li @click="on_tab_content('detail')" :class="tab_content.detail?'active':''">商品详情</li>#}
-{#				<li @click="on_tab_content('pack')" :class="tab_content.pack?'active':''">规格与包装</li>#}
-{#				<li @click="on_tab_content('service')" :class="tab_content.service?'active':''">售后服务</li>#}
-{#                <li @click="on_tab_content('comment')" :class="tab_content.comment?'active':''">商品评价([[count]])</li>#}
-{#			</ul>#}
-{#			<div @click="on_tab_content('detail')"class="tab_content" :class="tab_content.detail?'current':''">#}
-{#				<dl>#}
-{#					<dt>商品详情：</dt>#}
-{#					<dd>{{ sku.spu.desc_detail|safe }}</dd>#}
-{#				</dl>#}
-{#			</div>#}
-{#			<div @click="on_tab_content('pack')" class="tab_content" :class="tab_content.pack?'current':''">#}
-{#				<dl>#}
-{#					<dt>规格与包装：</dt>#}
-{#					<dd>{{ sku.spu.desc_pack|safe }}</dd>#}
-{#				</dl>#}
-{#			</div>#}
-{#			<div @click="on_tab_content('service')" class="tab_content" :class="tab_content.service?'current':''">#}
-{#				<dl>#}
-{#					<dt>售后服务：</dt>#}
-{#					<dd>{{ sku.spu.desc_service|safe }}</dd>#}
-{#				</dl>#}
-{#			</div>#}
-{#            <div  @click="on_tab_content('comment')"  class="tab_content" :class="tab_content.comment?'current':''">#}
-{#				<ul class="judge_list_con">#}
-{#					<li v-for="com in comments" class="judge_list fl">#}
-{#						<div class="user_info fl">#}
-{##}
-{#							<img src="{{ static('images/cat.jpg') }}">#}
-{#                            <b>[[com.username]]</b>#}
-{##}
-{#						</div>#}
-{##}
-{#                        <div class="judge_info fl">#}
-{##}
-{#							<div class="stars_five">[[com.score]]颗星</div>#}
-{#							<div class="judge_detail">派送非常快，第二天上午就收到。2天使用初步总结，前一部手机也是华为P9plus.MATE10pro包装原封未拆精致大气。拆开后第一眼就看到宝石蓝的手机，非常惊艳；然后就是配件一应俱全。开机各方面设置，把通讯录、短信等同步好，同品牌手机同步很快。和P9plus一样的后置指纹识别很方便。录制指纹容易，解锁非常快，秒开！屏幕完好，默认分辨率显示效果很好。</div>#}
-{#							<div class="judge_detail">[[com.comment]]</div>#}
-{##}
-{#                        </div>#}
-{#					</li>#}
-{#				</ul>#}
-{#			</div>#}
-{#		</div>#}
-{#	</div>#}
 	<div class="footer">
 		<div class="foot_link">
 			<a href="#">关于豆瓣</a>

@@ -59,10 +59,12 @@
                 <li>
 
                    <a href="/detail/{{ result.object.id }}"><img src="{{ result.object.image_file_id.url }}"></a>
-                    <h4><a href="#">{{ result.object.name }}</a></h4>
+                    <h4><a href="/detail/{{ result.object.id }}">{{ result.object.name }}</a></h4>
                     <div class="operate">
                         <span class="price">￥{{ result.object.score }}</span>
-                        <span>{{ result.object.name }}</span>
+                        <br>
+                        <br>
+                        <span>{{ result.object.desc }}</span>
                     </div>
                 </li>
                 {% else %}
